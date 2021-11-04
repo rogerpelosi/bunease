@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     resources :posts, only: [:create, :index, :show]
 
-    resources :users, only: [:update]
+    resources :users, only: [:update, :index]
 
     get '/me', to: 'users#show'
 

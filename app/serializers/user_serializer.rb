@@ -1,7 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
 
-  attributes :id, :username, :name, :email, :pp, :password_digest, :bio
+  attributes :id, :username, :name, :pp, :bio
 
-  has_many :chums
+  # has_many :chums
   
 end
