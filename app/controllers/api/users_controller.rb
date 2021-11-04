@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
             render json: @new_user,
             status: :created 
         else 
-            render json: {error: @new_user.errors.full_messages}, 
+            render json: @new_user.errors.full_messages, 
             status: :unprocessable_entity 
         end 
     end 
@@ -28,7 +28,7 @@ class Api::UsersController < ApplicationController
             render json: current_user,
             status: :ok 
         else 
-            render json: {error: current_user.errors.full_messages}, 
+            render json: current_user.errors.full_messages, 
             status: :unprocessable_entity 
         end 
     end 

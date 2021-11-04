@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
     resources :comments
 
-    resources :posts
+    resources :posts, only: [:create, :index, :show]
 
-    resources :users
+    resources :users, only: [:update]
 
     get '/me', to: 'users#show'
 

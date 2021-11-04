@@ -4,4 +4,6 @@ class Post < ApplicationRecord
   
   has_many :comments 
 
+  validates :image, presence: true
+
 end
