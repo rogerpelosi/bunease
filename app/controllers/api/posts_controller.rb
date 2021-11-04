@@ -1,6 +1,7 @@
 class Api::PostsController < ApplicationController
 
     before_action :set_post, only: [:show]
+    skip_before_action :confirm_auth
 
     def create  
         @post = current_user.posts.new(post_params)

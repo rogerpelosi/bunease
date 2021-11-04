@@ -1,5 +1,7 @@
 class Api::UsersController < ApplicationController
 
+    skip_before_action :confirm_auth, only: [:create]
+
     def create 
         @new_user = User.new(user_params)
         if @new_user.save

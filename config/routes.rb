@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   namespace :api do 
 
-    resources :comments
+    resources :comments, only: [:create, :index]
 
     resources :posts, only: [:create, :index, :show]
 
