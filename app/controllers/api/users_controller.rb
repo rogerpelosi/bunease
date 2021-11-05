@@ -1,9 +1,14 @@
 class Api::UsersController < ApplicationController
 
-    skip_before_action :confirm_auth, only: [:create, :index]
+    before_action :set_user, only: [:follow, :unfollow, :show]
+    skip_before_action :confirm_auth, only: [:create]
 
     def index 
         render json: User.all
+    end 
+
+    def show 
+        render json: @user
     end 
     
     def create 
@@ -18,7 +23,7 @@ class Api::UsersController < ApplicationController
         end 
     end 
 
-    def show 
+    def me 
         if current_user
             render json: current_user, 
             status: :ok
@@ -39,10 +44,22 @@ class Api::UsersController < ApplicationController
         end 
     end 
 
+    def follow 
+        current_user.followgainers << @user 
+    end 
+
+    def unfollow 
+        current_user.followed_users.find_by(followee_id: @user.id).destroy
+    end 
+
     private 
 
     def user_params 
         params.permit(:username, :name, :email, :bio, :profile_image, :password, :password_confirmation)
+    end 
+
+    def set_user 
+        @user = User.find(params[:id])
     end 
 
 end

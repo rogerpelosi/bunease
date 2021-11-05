@@ -1,19 +1,22 @@
 Rails.application.routes.draw do
   
+  
   namespace :api do 
+
+    resources :chums
 
     resources :comments, only: [:create, :index]
 
     resources :posts, only: [:create, :index, :show]
 
-    resources :users, only: [:update, :index]
+    resources :users, only: [:update, :index, :show]
 
-    get '/me', to: 'users#show'
-
+    get '/me', to: 'users#me'
     post '/signup', to: 'users#create'
+    post '/users/:id/follow', to: "users#follow"
+    post '/users/:id/unfollow', to: "users#unfollow"
 
     post '/login', to: 'sessions#create'
-
     delete '/logout', to: 'sessions#destroy'
 
   end
