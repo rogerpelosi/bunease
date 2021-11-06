@@ -25,7 +25,7 @@ class Api::UsersController < ApplicationController
 
     def me 
         if current_user
-            render json: current_user, 
+            render json: current_user, include: ['posts', 'posts.comments', 'followgainers'], 
             status: :ok
           else
             render json: { error: 'No active session' }, 

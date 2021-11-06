@@ -6,9 +6,9 @@ function Signup({ setCurrentUser }) {
 
     const history = useHistory();
 
-    const [signupData, setSignupData] = useState({username: '', password: '', password_confirmation: '', email: '', name: '', bio: '', pp: ''});
+    const [signupData, setSignupData] = useState({username: '', password: '', password_confirmation: '', email: ''});
 
-    const {username, password, password_confirmation, email, name, bio, pp} = signupData;
+    const {username, password, password_confirmation, email} = signupData;
 
     const handleSignup = (event) => {
         event.preventDefault();
@@ -38,89 +38,45 @@ function Signup({ setCurrentUser }) {
 
             <form onSubmit={handleSignup}>
 
-                <h1>SIGN UP</h1>
+                <h1>sign up</h1>
 
                 <div className='signupInputs'>
 
                     <p>
-                        <label className='label'>
-                            NAME
-                        </label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={name}
-                            onChange={(e) => setSignupData({...signupData, [e.target.name]: e.target.value})}
-                            className="inputField" />
-                    </p>
-
-                    <p>
-                        <label className='label'>
-                            USERNAME
-                        </label>
                         <input
                             type="text"
                             name="username"
+                            placeholder="username"
                             value={username}
                             onChange={(e) => setSignupData({...signupData, [e.target.name]: e.target.value})}
                             className="inputField" />
                     </p>
 
                     <p>
-                        <label className='label'>
-                            EMAIL 
-                        </label>
                         <input
                             type="text"
                             name="email"
+                            placeholder='email'
                             value={email}
                             onChange={(e) => setSignupData({...signupData, [e.target.name]: e.target.value})}
                             className="inputField" />
                     </p>
 
                     <p>
-                        <label className='label'>
-                            BIO
-                        </label>
-                        <input
-                            type="text"
-                            name="bio"
-                            value={bio}
-                            onChange={(e) => setSignupData({...signupData, [e.target.name]: e.target.value})}
-                            className="inputField" />
-                    </p>
-
-                    <p>
-                        <label className='label'>
-                            PROFILE PICTURE
-                        </label>
-                        <input
-                            type="text"
-                            name="pp"
-                            value={pp}
-                            onChange={(e) => setSignupData({...signupData, [e.target.name]: e.target.value})}
-                            className="inputField" />
-                    </p>
-
-                    <p>
-                        <label className='label'>
-                            PASSWORD
-                        </label>
                         <input
                             type="text"
                             name="password"
+                            placeholder='password'
                             value={password}
                             onChange={(e) => setSignupData({...signupData, [e.target.name]: e.target.value})}
                             className="inputField" />
                     </p>
 
                     <p>
-                        <label className='label'>
-                            CONFIRM PASSWORD
-                        </label>
                         <input
                             type="text"
                             name="password_confirmation"
+                            placeholder='confirm password'
                             value={password_confirmation}
                             onChange={(e) => setSignupData({...signupData, [e.target.name]: e.target.value})}
                             className="inputField" />
@@ -128,15 +84,15 @@ function Signup({ setCurrentUser }) {
 
                     <p>
                         <button className="signupButton" type="submit">
-                            SIGN UP
+                            sign up
                         </button>
                     </p>
 
-                    <p>OR</p>
+                    <p>or</p>
 
                     <p>
                         <Link className="loginButton" to="/api/login">
-                            LOGIN
+                            login
                         </Link>
                     </p>
 

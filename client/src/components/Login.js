@@ -37,29 +37,25 @@ function Login({ setCurrentUser }) {
 
             <form onSubmit={handleLogin}>
 
-                <h1>LOGIN</h1>
+                <h1>login</h1>
 
                 <div className='loginInputs'>
 
                     <p>
-                        <label className="label">
-                            Username
-                        </label>
                         <input
                             type="text"
                             name="username"
+                            placeholder='username'
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             className="inputField" />
                     </p>
 
                     <p>
-                        <label className='label'>
-                            Password
-                        </label>
                         <input
                             type="text"
                             name="password"
+                            placeholder='password'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="inputField" />
@@ -67,15 +63,15 @@ function Login({ setCurrentUser }) {
 
                     <p>
                         <button className="loginButton" type="submit">
-                            LOGIN
+                            login
                         </button>
                     </p>
 
-                    <p>OR</p>
+                    <p>or</p>
 
                     <p>
                         <Link className='signupButton' to='/api/signup'>
-                            SIGN UP
+                            sign up
                         </Link>
                     </p>
 
