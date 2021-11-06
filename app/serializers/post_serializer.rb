@@ -5,4 +5,6 @@ class PostSerializer < ActiveModel::Serializer
   has_one :user
   has_many :comments
 
+  #write method that looks through all comments and returns all with that post id?
+
 end

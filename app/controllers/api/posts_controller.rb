@@ -19,7 +19,7 @@ class Api::PostsController < ApplicationController
     end 
 
     def show 
-        render json: @post
+        render json: @post, include: ["user", "comments", "comments.user"]
     end 
 
     private 

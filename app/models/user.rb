@@ -5,9 +5,11 @@ class User < ApplicationRecord
 
     has_secure_password
 
+    #think of followgainers as the people a specified instance follows itself
     has_many :followed_users, foreign_key: :follower_id, class_name: 'Chum'
     has_many :followgainers, through: :followed_users
 
+    #followers, think of other instances that follow specified instance
     has_many :following_users, foreign_key: :followgainer_id, class_name: 'Chum'
     has_many :followers, through: :following_users
 

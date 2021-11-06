@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
     before_action :set_user, only: [:follow, :unfollow, :show]
-    skip_before_action :confirm_auth, only: [:create]
+    skip_before_action :confirm_auth, only: [:create, :show]
 
     def index 
         render json: User.all

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
     resources :chums
 
-    resources :comments, only: [:create, :index]
+    resources :comments, only: [:create, :index, :show]
 
     resources :posts, only: [:create, :index, :show]
 
