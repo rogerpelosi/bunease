@@ -4,13 +4,29 @@ function StaticContainer({ data, dataType }) {
 
     if (dataType === 'user') {
         return (
-            <div className="StaticContainer">
+            <div className="static">
 
                 <div className="userData">
-                    <h2>name: {data.name}</h2>
-                    <h2>username: {data.username}</h2>
-                    <h2>email: {data.email}</h2>
-                    <h3>bio: "{data.bio}"</h3>
+                    <h2>name: {`${data.name}`.toLowerCase()}</h2>
+                    <h2>username: {`${data.username}`.toLowerCase()}</h2>
+                    <h2>email: {`${data.email}`.toLowerCase()}</h2>
+                    <h3>bio: "{`${data.bio}`.toLowerCase()}"</h3>
+                </div>
+
+            </div>
+        );
+    } else if (dataType === 'chums') {
+        return (
+            <div className="static">
+
+                <div className="chumData">
+                    
+                    {data.map(chum => 
+                        <div className="chum" key={chum.username}>
+                            <h3>{`${chum.username}`.toLowerCase()}</h3>
+                            <h3>{`${chum.name}`.toLowerCase()}</h3>
+                        </div>)}
+
                 </div>
 
             </div>
