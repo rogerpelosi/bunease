@@ -1,6 +1,8 @@
-
+import { useHistory } from 'react-router-dom';
 
 function StaticContainer({ data, dataType }) {
+
+    let history = useHistory();
 
     if (dataType === 'user') {
         return (
@@ -13,6 +15,10 @@ function StaticContainer({ data, dataType }) {
                     <h3>bio: "{`${data.bio}`.toLowerCase()}"</h3>
                 </div>
 
+                <button onClick={() => history.push('/me/edit')}>
+                    edit
+                </button>
+
             </div>
         );
     } else if (dataType === 'chums') {
@@ -23,8 +29,8 @@ function StaticContainer({ data, dataType }) {
                     
                     {data.map(chum => 
                         <div className="chum" key={chum.username}>
-                            <h3>{`${chum.username}`.toLowerCase()}</h3>
-                            <h3>{`${chum.name}`.toLowerCase()}</h3>
+                            <h3>{`${chum.username}`.toLowerCase()} {`${chum.name}`.toLowerCase()}</h3>
+                            {/* <h3>{`${chum.name}`.toLowerCase()}</h3> */}
                         </div>)}
 
                 </div>

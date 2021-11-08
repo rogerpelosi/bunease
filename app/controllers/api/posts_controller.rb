@@ -15,7 +15,8 @@ class Api::PostsController < ApplicationController
     end 
 
     def index 
-        render json: Post.all 
+        @posts = Post.where(:user_id => current_user.followgainers)
+        render json: @posts
     end 
 
     def show 

@@ -3,10 +3,13 @@ import { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 
 import Navigation from './components/Navigation';
+import StaticContainer from './components/StaticContainer';
 
 import UserPosts from './components/UserPosts';
+import ChumPosts from './components/ChumPosts';
 import PostDetails from './components/PostDetails';
-import StaticContainer from './components/StaticContainer';
+
+import SearchChums from './components/SearchChums';
 
 function Authenticated({ setCurrentUser }) {
 
@@ -14,8 +17,13 @@ function Authenticated({ setCurrentUser }) {
 
     const [userInfo, setUserInfo] = useState({});
     const [userPosts, setUserPosts] = useState([]);
+
     const [userChums, setUserChums] = useState([]);
-    console.log(userChums);
+
+    const [chumPosts, setChumPosts] = useState([]);
+    const [chumsList, setChumsList] = useState([]);
+
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
         fetch(`/api/me`)
@@ -23,6 +31,18 @@ function Authenticated({ setCurrentUser }) {
         .then(currentUser => {setUserInfo(currentUser);
                              setUserPosts(currentUser.posts);
                              setUserChums(currentUser.followgainers);})
+    },[])
+
+    useEffect(() => {
+        fetch(`/api/posts`)
+        .then(resp => resp.json())
+        .then(posts => setChumPosts(posts))
+    },[])
+
+    useEffect(() => {
+        fetch(`/api/users`)
+        .then(resp => resp.json())
+        .then(users => setChumsList(users))
     },[])
 
     const handleLogout = () => {
@@ -37,6 +57,8 @@ function Authenticated({ setCurrentUser }) {
             }
           })
       };
+
+      const filteredChums = chumsList.filter(chum => (chum.username || '').toLowerCase().includes(search.toLowerCase()));
 
     return (
         <div>
@@ -55,8 +77,19 @@ function Authenticated({ setCurrentUser }) {
                     <UserPosts userInfo={userInfo} userPosts={userPosts} />
                 </Route>
 
+                <Route path='/posts/:id'>
+                    <StaticContainer data={userChums} dataType='chums' />
+                    <PostDetails />
+                </Route>
+
                 <Route path='/posts'>
                     <StaticContainer data={userChums} dataType='chums' />
+                    <ChumPosts chumPosts={chumPosts} />
+                </Route>
+
+                <Route path='/users'>
+                    <StaticContainer data={userChums} dataType='chums' />
+                    <SearchChums search={search} setSearch={setSearch} chums={filteredChums} />
                 </Route>
 
             </Switch>

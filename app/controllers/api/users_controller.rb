@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
     skip_before_action :confirm_auth, only: [:create, :show]
 
     def index 
-        render json: User.all
+        render json: User.where("id != ?", current_user.id)
     end 
 
     def show 

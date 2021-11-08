@@ -1,6 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 
-function Navigation({  }) {
+function Navigation() {
 
     let history = useHistory();
 
@@ -10,7 +10,11 @@ function Navigation({  }) {
             <nav>
 
                 <Link to='/me' onClick={() => history.push('/me')}>
-                    mine
+                    me
+                </Link><br />
+
+                <Link to='/users' onClick={() => history.push('/users')}>
+                    search
                 </Link><br />
 
                 <Link to='/posts' onClick={() => history.push('/posts')}>

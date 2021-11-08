@@ -34,6 +34,7 @@ function PostDetails() {
        <div className='postdetails'>
 
            <h2>{username}</h2>
+           <h3>{label}</h3>
 
            <h2>
                <button onClick={() => history.goBack()}>back</button>
