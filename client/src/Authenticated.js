@@ -6,18 +6,23 @@ import Navigation from './components/Navigation';
 import StaticContainer from './components/StaticContainer';
 
 import UserPosts from './components/UserPosts';
-import ChumPosts from './components/ChumPosts';
+import EditUserProfile from './components/EditUserProfile';
+
 import PostDetails from './components/PostDetails';
 
+import ChumPosts from './components/ChumPosts';
+import ChumDetails from './components/ChumDetails';
 import SearchChums from './components/SearchChums';
 
-function Authenticated({ setCurrentUser }) {
+function Authenticated({ currentUser, setCurrentUser }) {
 
     const history = useHistory();
 
-    const [userInfo, setUserInfo] = useState({});
-    const [userPosts, setUserPosts] = useState([]);
+    // const [update, setUpdate] = useState(false);
 
+    const [userInfo, setUserInfo] = useState({});
+    const [newUserInfo, setNewUserInfo] = useState({username: '', name: '', email: '', pp: '', bio: ''});
+    const [userPosts, setUserPosts] = useState([]);
     const [userChums, setUserChums] = useState([]);
 
     const [chumPosts, setChumPosts] = useState([]);
@@ -28,10 +33,11 @@ function Authenticated({ setCurrentUser }) {
     useEffect(() => {
         fetch(`/api/me`)
         .then(resp => resp.json())
-        .then(currentUser => {setUserInfo(currentUser);
-                             setUserPosts(currentUser.posts);
-                             setUserChums(currentUser.followgainers);})
-    },[])
+        .then(cu => {setUserInfo(cu);
+                    setUserPosts(cu.posts);
+                    setUserChums(cu.followgainers);
+                    setNewUserInfo(newUserInfo => {return {...newUserInfo, username: cu.username, name: cu.name, email: cu.email, pp: cu.pp, bio: cu.bio}})})
+    },[setUserInfo]);
 
     useEffect(() => {
         fetch(`/api/posts`)
@@ -53,9 +59,19 @@ function Authenticated({ setCurrentUser }) {
           .then(res => {
             if (res.ok) {
               setCurrentUser(null)
-              history.push('/')
+              history.push('/api/login')
             }
           })
+      };
+
+      const handleSubmit = (e) => {
+          e.preventDefault();
+          fetch(`/api/users/${currentUser.id}`, {
+              method: 'PATCH',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify(newUserInfo)})
+              .then(resp => console.log(resp))
+              .then(setUserInfo({...userInfo, username: newUserInfo.username, name: newUserInfo.name, email: newUserInfo.email, bio: newUserInfo.bio, pp: newUserInfo.pp}))
       };
 
       const filteredChums = chumsList.filter(chum => (chum.username || '').toLowerCase().includes(search.toLowerCase()));
@@ -72,9 +88,14 @@ function Authenticated({ setCurrentUser }) {
                     <PostDetails />
                 </Route>
 
+                <Route path='/me/edit'>
+                    <StaticContainer data={newUserInfo} dataType='edituser' />
+                    <EditUserProfile handleSubmit={handleSubmit} newUserInfo={newUserInfo} setNewUserInfo={setNewUserInfo} />
+                </Route>
+
                 <Route path='/me'>
                     <StaticContainer data={userInfo} dataType='user' />
-                    <UserPosts userInfo={userInfo} userPosts={userPosts} />
+                    <UserPosts userPosts={userPosts} />
                 </Route>
 
                 <Route path='/posts/:id'>
@@ -85,6 +106,11 @@ function Authenticated({ setCurrentUser }) {
                 <Route path='/posts'>
                     <StaticContainer data={userChums} dataType='chums' />
                     <ChumPosts chumPosts={chumPosts} />
+                </Route>
+
+                <Route path='/users/:id'>
+                    <StaticContainer data={userChums} dataType='chums' />
+                    <ChumDetails />
                 </Route>
 
                 <Route path='/users'>

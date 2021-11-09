@@ -1,12 +1,18 @@
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
+// this is intended to be a static div that holds a chum list or current user data, will be approx the same size as login and sign up divs as well
 
 function StaticContainer({ data, dataType }) {
 
     let history = useHistory();
 
-    if (dataType === 'user') {
+    if (dataType === 'user' || dataType === 'edituser') {
         return (
             <div className="static">
+
+                <div className='pp' style={{backgroundColor: data.pp ?
+                                                             data.pp :
+                                                             '#FFFF00'}}>xd</div>
 
                 <div className="userData">
                     <h2>name: {`${data.name}`.toLowerCase()}</h2>
@@ -15,9 +21,13 @@ function StaticContainer({ data, dataType }) {
                     <h3>bio: "{`${data.bio}`.toLowerCase()}"</h3>
                 </div>
 
-                <button onClick={() => history.push('/me/edit')}>
-                    edit
-                </button>
+                {
+                    dataType === 'edituser'? 
+                    null :
+                    (<button onClick={() => history.push('/me/edit')}>
+                        edit
+                    </button>)
+                }
 
             </div>
         );
@@ -26,11 +36,16 @@ function StaticContainer({ data, dataType }) {
             <div className="static">
 
                 <div className="chumData">
+
+                    <h1>your chums</h1>
                     
                     {data.map(chum => 
                         <div className="chum" key={chum.username}>
-                            <h3>{`${chum.username}`.toLowerCase()} {`${chum.name}`.toLowerCase()}</h3>
-                            {/* <h3>{`${chum.name}`.toLowerCase()}</h3> */}
+                            <Link to={`/users/${chum.id}`}>
+                                <h3>{`${chum.username}`.toLowerCase()}</h3>
+                            </Link>
+                            <h3>{`${chum.name}`.toLowerCase()}</h3>
+                            <button>remove</button>
                         </div>)}
 
                 </div>
@@ -38,12 +53,6 @@ function StaticContainer({ data, dataType }) {
             </div>
         );
     }
-
-    return (
-        <div>
-            <h2>poop</h2>
-        </div>
-    );
 
 }
 

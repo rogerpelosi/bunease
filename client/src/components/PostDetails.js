@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
+// this shows any post's comments, attached user, and gives ability to create new comments
+
 function PostDetails() {
 
     const [postInfo, setPostInfo] = useState({});

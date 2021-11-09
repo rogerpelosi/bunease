@@ -1,14 +1,14 @@
 import PostCard from './PostCard';
 
-function UserPosts({ userInfo, userPosts }) {
+// this is a list of all of the current user's posts
 
-    // const {username, name, pp, bio, email} = userInfo;
-    // console.log(userPosts)
+function UserPosts({ userPosts }) {
 
-    const posts = userPosts.map(post =>  <PostCard key={post.id} post={post} postType='user' /> );
+    const posts = userPosts.map(post =>  
+    <PostCard key={post.id} post={post} postType='user' /> );
 
     return (
-        <div>
+        <div className='userposts'>
             {posts}
         </div>
     );

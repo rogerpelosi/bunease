@@ -10,7 +10,7 @@ function UnAuthenticated({ setCurrentUser }) {
 
             <Switch>
 
-                <Route exact path='/'>
+                <Route exact path='/api/login'>
                     <Login setCurrentUser={setCurrentUser} />
                 </Route>
 

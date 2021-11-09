@@ -33,7 +33,7 @@ function Login({ setCurrentUser }) {
     return (
         <div className="login">
 
-            <Redirect to='/' /> 
+            <Redirect to='/api/login' /> 
 
             <form onSubmit={handleLogin}>
 

@@ -4,7 +4,6 @@ function SearchChums({ search, setSearch, chums }) {
 
     const searchedChums = chums.map(chum => {
         return <div className="chum" key={chum.id}>
-            {/* need to add router on auth home for users pages */}
                     <Link to={`/users/${chum.id}`}>
                     {`${chum.username}`.toLowerCase()} 
                     {`${chum.name}`.toLowerCase()} 
