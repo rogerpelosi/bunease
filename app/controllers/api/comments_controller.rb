@@ -3,8 +3,8 @@ class Api::CommentsController < ApplicationController
     skip_before_action :confirm_auth
 
     def create 
-        @post = Post.find(params[:id])
-        @new_comment = current_user.comments.new(comment: comment_params, post_id: @post.id)
+        # byebug
+        @new_comment = current_user.comments.new(comment_params)
         if @new_comment.save 
             render json: @new_comment,
             status: :created
@@ -26,7 +26,7 @@ class Api::CommentsController < ApplicationController
     private 
 
     def comment_params 
-        params.permit(:comment)
+        params.permit(:comment, :post_id)
     end 
     
 end

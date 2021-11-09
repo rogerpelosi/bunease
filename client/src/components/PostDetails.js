@@ -12,6 +12,9 @@ function PostDetails() {
     const {username} = user;
 
     const [comments, setComments] = useState([]);
+    const [newComment, setNewComment] = useState('');
+    const [update, setUpdate] = useState(false);
+
     const postComments = comments.map(comment => {
         return (
             <div className="comments" key={comment.id}>
@@ -30,7 +33,17 @@ function PostDetails() {
         .then(post => {setPostInfo(post);
                         setUser(post.user);
                         setComments(post.comments)})
-    }, [id])
+    }, [id, setUpdate, update])
+
+    function handleComment(postId) {
+        fetch(`/api/comments`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({post_id: postId, comment: newComment})
+        })
+        .then(setUpdate(!update))
+        .then(setNewComment(''))
+    }
 
     return (
        <div className='postdetails'>
@@ -45,6 +58,20 @@ function PostDetails() {
            <img src={image} alt={label} />
 
             {postComments}
+
+            <div className='newComment'>
+
+            <input
+                type="text"
+                placeholder={`respond to ${username}'s post`}
+                value={newComment}
+                onChange={(e)=> setNewComment(e.target.value)}
+                className="search_input"
+            />
+
+            <button onClick={() => handleComment(postInfo.id)}>comment</button>
+
+            </div>
      
        </div> 
     );
