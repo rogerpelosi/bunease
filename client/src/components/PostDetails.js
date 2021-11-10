@@ -50,7 +50,9 @@ function PostDetails() {
     return (
        <div className='postdetails'>
 
-           <h2>{username}</h2>
+           <Link to={`/users/${user.id}`}>
+                <h2>{username}</h2>
+           </Link>
            <h3>{label}</h3>
 
            <h2>

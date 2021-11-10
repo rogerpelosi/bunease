@@ -2,7 +2,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 // this is intended to be a static div that holds a chum list or current user data, will be approx the same size as login and sign up divs as well
 
-function StaticContainer({ data, dataType }) {
+function StaticContainer({ data, dataType, handleUnFollow }) {
 
     let history = useHistory();
 
@@ -45,7 +45,7 @@ function StaticContainer({ data, dataType }) {
                                 <h3>{`${chum.username}`.toLowerCase()}</h3>
                             </Link>
                             <h3>{`${chum.name}`.toLowerCase()}</h3>
-                            <button>remove</button>
+                            <button onClick={() => handleUnFollow(chum)}>remove</button>
                         </div>)}
 
                 </div>

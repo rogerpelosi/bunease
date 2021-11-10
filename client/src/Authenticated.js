@@ -49,7 +49,7 @@ function Authenticated({ currentUser, setCurrentUser }) {
         fetch(`/api/users`)
         .then(resp => resp.json())
         .then(users => setChumsList(users))
-    },[])
+    },[setUserChums])
 
     const handleLogout = () => {
         fetch(`/api/logout`, {
@@ -75,18 +75,25 @@ function Authenticated({ currentUser, setCurrentUser }) {
       };
 
       const handleFollow = (chum) => {
-        //   console.log(chum)
-          fetch(`/api/users/${chum.id}/follow`, {
-              method: 'POST',
-              headers: {'Content-Type': 'application/json'}
-          })
-          .then(setUserChums([...userChums, chum]))
+        //   fetch(`/api/users/${chum.id}/follow`, {
+        //       method: 'POST',
+        //       headers: {'Content-Type': 'application/json'}
+        //   })
+        //   .then(setUserChums([...userChums, chum]))
+        fetch(`/api/users/${chum.id}/follow`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(res => {
+            if(res.ok) {
+                setUserChums([...userChums, chum])
+            }
+        })
+        // .then(setUserChums([...userChums, chum]))
       };
 
       const handleUnFollow = (chum) => {
-        //   console.log(chum)
         const newUserChums = userChums.filter(userChum => userChum.id !== chum.id)
-        // console.log(newUserChums)
         fetch(`/api/users/${chum.id}/unfollow`, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'}
@@ -119,23 +126,26 @@ function Authenticated({ currentUser, setCurrentUser }) {
                 </Route>
 
                 <Route path='/posts/:id'>
-                    <StaticContainer data={userChums} dataType='chums' />
+                    <StaticContainer data={userChums} dataType='chums'
+                    handleUnFollow={handleUnFollow} />
                     <PostDetails />
                 </Route>
 
                 <Route path='/posts'>
-                    <StaticContainer data={userChums} dataType='chums' />
+                    <StaticContainer data={userChums} dataType='chums'
+                    handleUnFollow={handleUnFollow} />
                     <ChumPosts chumPosts={chumPosts} />
                 </Route>
 
                 <Route path='/users/:id'>
-                    <StaticContainer data={userChums} dataType='chums' />
-                    {/* pass userChums to chumDetails to see if following */}
+                    <StaticContainer data={userChums} dataType='chums' 
+                    handleUnFollow={handleUnFollow}/>
                     <ChumDetails userChums={userChums} handleFollow={handleFollow}handleUnFollow={handleUnFollow}/>
                 </Route>
 
                 <Route path='/users'>
-                    <StaticContainer data={userChums} dataType='chums' />
+                    <StaticContainer data={userChums} dataType='chums' 
+                    handleUnFollow={handleUnFollow}/>
                     <SearchChums search={search} setSearch={setSearch} chums={filteredChums} />
                 </Route>
 

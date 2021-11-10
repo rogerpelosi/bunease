@@ -8,7 +8,9 @@ function PostCard({ post, postType }) {
         return (
             <div className="chumpost">
 
-                <h2>{post.user.username}</h2>
+                <Link to={`/users/${post.user.id}`}>
+                    <h2>{post.user.username}</h2>
+                </Link>
 
                 <h3>{post.label}</h3>
 
