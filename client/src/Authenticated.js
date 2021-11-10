@@ -37,13 +37,13 @@ function Authenticated({ currentUser, setCurrentUser }) {
                     setUserPosts(cu.posts);
                     setUserChums(cu.followgainers);
                     setNewUserInfo(newUserInfo => {return {...newUserInfo, username: cu.username, name: cu.name, email: cu.email, pp: cu.pp, bio: cu.bio}})})
-    },[setUserInfo]);
+    },[setUserInfo, setUserChums]);
 
     useEffect(() => {
         fetch(`/api/posts`)
         .then(resp => resp.json())
         .then(posts => setChumPosts(posts))
-    },[])
+    },[setUserChums])
 
     useEffect(() => {
         fetch(`/api/users`)
@@ -72,6 +72,26 @@ function Authenticated({ currentUser, setCurrentUser }) {
               body: JSON.stringify(newUserInfo)})
               .then(resp => console.log(resp))
               .then(setUserInfo({...userInfo, username: newUserInfo.username, name: newUserInfo.name, email: newUserInfo.email, bio: newUserInfo.bio, pp: newUserInfo.pp}))
+      };
+
+      const handleFollow = (chum) => {
+        //   console.log(chum)
+          fetch(`/api/users/${chum.id}/follow`, {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'}
+          })
+          .then(setUserChums([...userChums, chum]))
+      };
+
+      const handleUnFollow = (chum) => {
+        //   console.log(chum)
+        const newUserChums = userChums.filter(userChum => userChum.id !== chum.id)
+        // console.log(newUserChums)
+        fetch(`/api/users/${chum.id}/unfollow`, {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(setUserChums(newUserChums))
       };
 
       const filteredChums = chumsList.filter(chum => (chum.username || '').toLowerCase().includes(search.toLowerCase()));
@@ -110,7 +130,8 @@ function Authenticated({ currentUser, setCurrentUser }) {
 
                 <Route path='/users/:id'>
                     <StaticContainer data={userChums} dataType='chums' />
-                    <ChumDetails />
+                    {/* pass userChums to chumDetails to see if following */}
+                    <ChumDetails userChums={userChums} handleFollow={handleFollow}handleUnFollow={handleUnFollow}/>
                 </Route>
 
                 <Route path='/users'>

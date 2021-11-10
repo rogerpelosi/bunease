@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 
 // this shows any post's comments, attached user, and gives ability to create new comments
 
@@ -18,7 +18,9 @@ function PostDetails() {
     const postComments = comments.map(comment => {
         return (
             <div className="comments" key={comment.id}>
-                <p>{comment.user.username}</p>
+                <Link to={`/users/${comment.user.id}`}>
+                    <p>{comment.user.username}</p>
+                </Link>
                 <p>{comment.comment}</p>
             </div>);
         })

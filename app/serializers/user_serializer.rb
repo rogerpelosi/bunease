@@ -4,7 +4,7 @@ class UserSerializer < ActiveModel::Serializer
 
   has_many :posts
   #, -> { order(created_at: :desc) }
-  has_many :followgainers
+  has_many :followgainers, include: ['posts', 'posts.comments', 'followgainers']
 
   # def posts 
   #   @posts = self.posts.order(created_at: :desc)

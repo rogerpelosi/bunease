@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get '/me', to: 'users#me'
     post '/signup', to: 'users#create'
     post '/users/:id/follow', to: "users#follow"
-    post '/users/:id/unfollow', to: "users#unfollow"
+    delete '/users/:id/unfollow', to: "users#unfollow"
 
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'

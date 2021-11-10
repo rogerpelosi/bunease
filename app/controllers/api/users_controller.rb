@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
     end 
 
     def show 
-        render json: @user
+        render json: @user, include: ['posts', 'posts.comments', 'followgainers']
     end 
     
     def create 
@@ -49,7 +49,7 @@ class Api::UsersController < ApplicationController
     end 
 
     def unfollow 
-        current_user.followed_users.find_by(followee_id: @user.id).destroy
+        current_user.followed_users.find_by(followgainer_id: @user.id).destroy
     end 
 
     private 

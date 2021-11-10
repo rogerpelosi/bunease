@@ -5,7 +5,7 @@ import PostCard from './PostCard';
 
 // component for external user profile to view and follow
 
-function ChumDetails() {
+function ChumDetails({ userChums, handleFollow, handleUnFollow }) {
 
     const [chum, setChum] = useState({});
     const [chumPosts, setChumPosts] = useState([]);
@@ -20,12 +20,21 @@ function ChumDetails() {
                        setChumPosts(user.posts)})
     },[id])
 
+    const isFollowing = () => {
+        return userChums.find(userChum => userChum.id === chum.id)
+    };
+
+    // console.log(userChums.map(chm => console.log(chm)))
+    // console.log(chum)
+    // loop through user chums array to see if chum.id is found in each userchum hash or not
     return (
         <div>
 
             <div className='pp' style={{backgroundColor: chum.pp ? chum.pp :'#FFFF00'}}>
                 xd
             </div>
+
+            {isFollowing() ? <button onClick={() => handleUnFollow(chum)}>remove</button> : <button onClick={() => handleFollow(chum)}>add chum</button>}
             
             <h2>{chum.username}</h2>
 
