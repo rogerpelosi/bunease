@@ -45,7 +45,8 @@ class Api::UsersController < ApplicationController
     end 
 
     def follow 
-        current_user.followgainers << @user 
+        current_user.followgainers << @user
+        render json: @user, status: :created 
     end 
 
     def unfollow 

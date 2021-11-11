@@ -7,6 +7,7 @@ import StaticContainer from './components/StaticContainer';
 
 import UserPosts from './components/UserPosts';
 import EditUserProfile from './components/EditUserProfile';
+import NewPost from './components/NewPost';
 
 import PostDetails from './components/PostDetails';
 
@@ -18,10 +19,11 @@ function Authenticated({ currentUser, setCurrentUser }) {
 
     const history = useHistory();
 
-    // const [update, setUpdate] = useState(false);
+    const [update, setUpdate] = useState(false);
 
     const [userInfo, setUserInfo] = useState({});
     const [newUserInfo, setNewUserInfo] = useState({username: '', name: '', email: '', pp: '', bio: ''});
+
     const [userPosts, setUserPosts] = useState([]);
     const [userChums, setUserChums] = useState([]);
 
@@ -29,6 +31,11 @@ function Authenticated({ currentUser, setCurrentUser }) {
     const [chumsList, setChumsList] = useState([]);
 
     const [search, setSearch] = useState('');
+
+    const [newPost, setNewPost] = useState({image: '', thumb: '', label: ''})
+
+    // const [uploadedImg, setUploadedImg] = useState('');
+    // const [label, setLabel] = useState('');
 
     useEffect(() => {
         fetch(`/api/me`)
@@ -43,7 +50,7 @@ function Authenticated({ currentUser, setCurrentUser }) {
         fetch(`/api/posts`)
         .then(resp => resp.json())
         .then(posts => setChumPosts(posts))
-    },[setUserChums])
+    },[setChumPosts]);
 
     useEffect(() => {
         fetch(`/api/users`)
@@ -80,13 +87,16 @@ function Authenticated({ currentUser, setCurrentUser }) {
         //       headers: {'Content-Type': 'application/json'}
         //   })
         //   .then(setUserChums([...userChums, chum]))
+        // console.log(chum.posts)
         fetch(`/api/users/${chum.id}/follow`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'}
         })
         .then(res => {
             if(res.ok) {
-                setUserChums([...userChums, chum])
+                setUserChums([...userChums, chum]);
+                // chum.posts.forEach(post => setChumPosts([...chumPosts, post]))
+                // setChumPosts([...chumPosts, chum.posts])
             }
         })
         // .then(setUserChums([...userChums, chum]))
@@ -99,6 +109,29 @@ function Authenticated({ currentUser, setCurrentUser }) {
             headers: {'Content-Type': 'application/json'}
         })
         .then(setUserChums(newUserChums))
+        .then(setTimeout(() => {setUpdate(!update)}, 10000), console.log('unfollowed'))
+      };
+
+      const handleUpload = (result) => {
+        setNewPost({...newPost, image: result.info.secure_url, thumb: result.info.eager[0].secure_url })
+      }
+
+      const handlePost = () => {
+        // const body = {
+        //   image: result.info.secure_url,
+        //   thumb: result.info.eager[0].secure_url
+        // }
+        fetch('/api/posts', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(newPost)
+        })
+          .then(res => res.json())
+          .then(post => {
+            console.log(post);
+            setUserPosts([...userPosts, post]);
+            history.push('/me')
+          })
       };
 
       const filteredChums = chumsList.filter(chum => (chum.username || '').toLowerCase().includes(search.toLowerCase()));
@@ -110,10 +143,20 @@ function Authenticated({ currentUser, setCurrentUser }) {
 
             <Switch>
 
+            <Route path='/me/posts/new'>
+                    <StaticContainer data={userInfo} dataType='user' handleUpload={handleUpload} />
+                    <NewPost newPost={newPost} setNewPost={setNewPost} handlePost={handlePost} />
+                </Route>
+
                 <Route path='/me/posts/:id'>
-                    <StaticContainer data={userInfo} dataType='user' />
+                    <StaticContainer data={userInfo} dataType='user' handleUpload={handleUpload} />
                     <PostDetails />
                 </Route>
+
+                {/* <Route path='/me/posts/new'>
+                    <StaticContainer data={userInfo} dataType='user'  />
+                    <NewPost newPost={newPost} setNewPost={setNewPost} handlePost={handlePost} />
+                </Route>  */}
 
                 <Route path='/me/edit'>
                     <StaticContainer data={newUserInfo} dataType='edituser' />
@@ -121,7 +164,7 @@ function Authenticated({ currentUser, setCurrentUser }) {
                 </Route>
 
                 <Route path='/me'>
-                    <StaticContainer data={userInfo} dataType='user' />
+                    <StaticContainer data={userInfo} dataType='user' handleUpload={handleUpload} />
                     <UserPosts userPosts={userPosts} />
                 </Route>
 

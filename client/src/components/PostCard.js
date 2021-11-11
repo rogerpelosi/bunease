@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 function PostCard({ post, postType }) {
 
+    const placehold= 'https://res.cloudinary.com/sillysadsoy/image/upload/c_fill,e_pixelate:8,g_center,w_500/v1636673487/chum-bucket-posts/yansquq4nnvh5g0nalcv.jpg'
+
     if(postType === 'chums') {
         return (
             <div className="chumpost">
@@ -35,7 +37,7 @@ function PostCard({ post, postType }) {
         <div className="userpost">
 
             <Link to={`/me/posts/${post.id}`}>
-                <img src={post.image} alt={post.label} />
+                <img src={post.thumb ? post.thumb : placehold} alt={post.label} />
             </Link>
 
         </div>

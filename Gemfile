@@ -51,3 +51,6 @@ end
 gem "active_model_serializers", "~> 0.10.12"
 
 # gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+
+gem "cloudinary", "~> 1.21"
+gem "dotenv-rails", "~> 2.7"

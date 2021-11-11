@@ -9,7 +9,7 @@ function UserPosts({ userPosts }) {
 
     return (
         <div className='userposts'>
-            {posts}
+            {userPosts.length > 0? posts : <h3>try adding your first post!</h3>}
         </div>
     );
 

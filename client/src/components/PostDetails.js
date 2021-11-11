@@ -13,7 +13,6 @@ function PostDetails() {
 
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
-    const [update, setUpdate] = useState(false);
 
     const postComments = comments.map(comment => {
         return (
@@ -35,7 +34,7 @@ function PostDetails() {
         .then(post => {setPostInfo(post);
                         setUser(post.user);
                         setComments(post.comments)})
-    }, [id, setUpdate, update])
+    }, [id])
 
     function handleComment(postId) {
         fetch(`/api/comments`, {
@@ -43,7 +42,8 @@ function PostDetails() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({post_id: postId, comment: newComment})
         })
-        .then(setUpdate(!update))
+        .then(resp => resp.json())
+        .then(comment => setComments([...comments, comment]))
         .then(setNewComment(''))
     }
 

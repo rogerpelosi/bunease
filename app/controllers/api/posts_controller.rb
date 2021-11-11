@@ -1,22 +1,22 @@
 class Api::PostsController < ApplicationController
 
     before_action :set_post, only: [:show]
-    skip_before_action :confirm_auth
+    # skip_before_action :confirm_auth
 
     def create  
-        @post = current_user.posts.new(post_params)
-        if post.save
-            render json: @post,
+        @new_post = current_user.posts.new(post_params)
+        if @new_post.save
+            render json: @new_post,
             status: :created
         else 
-            render json: @post.errors.full_messages,
+            render json: @new_post.errors.full_messages,
             status: :unprocessable_entity
         end 
     end 
 
     def index 
         @posts = Post.where(:user_id => current_user.followgainers)
-        render json: @posts
+        render json: @posts, include: ["user", "comments", "comments.user"]
     end 
 
     def show 
@@ -26,7 +26,7 @@ class Api::PostsController < ApplicationController
     private 
 
     def post_params 
-        params.permit(:image, :label) 
+        params.permit(:image, :label, :thumb) 
     end 
 
     def set_post  

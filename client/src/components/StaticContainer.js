@@ -1,10 +1,28 @@
 import { Link, useHistory } from 'react-router-dom';
+import CloudinaryUpload from './CloudinaryUpload';
 
 // this is intended to be a static div that holds a chum list or current user data, will be approx the same size as login and sign up divs as well
 
-function StaticContainer({ data, dataType, handleUnFollow }) {
+function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
 
     let history = useHistory();
+
+    // const handleUpload = (result) => {
+    //     const body = {
+    //       image: result.info.secure_url,
+    //       thumb: result.info.eager[0].secure_url
+    //     }
+    //     fetch('/api/posts', {
+    //       method: 'POST',
+    //       headers: {'Content-Type': 'application/json'},
+    //       body: JSON.stringify(body)
+    //     })
+    //       .then(res => res.json())
+    //       .then(user => {
+    //         console.log(user);
+    //         // setCurrentUser(user)
+    //       })
+    //   }
 
     if (dataType === 'user' || dataType === 'edituser') {
         return (
@@ -27,6 +45,16 @@ function StaticContainer({ data, dataType, handleUnFollow }) {
                     (<button onClick={() => history.push('/me/edit')}>
                         edit
                     </button>)
+                }
+
+                {
+                   dataType === 'edituser'?
+                   null :
+                   (<CloudinaryUpload
+                    preset="jz79ayen"
+                    buttonText="new post"
+                    handleUpload={handleUpload}
+                    />)
                 }
 
             </div>
