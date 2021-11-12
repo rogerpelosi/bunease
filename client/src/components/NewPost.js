@@ -1,11 +1,5 @@
-// import { useState } from 'react';
 
 function NewPost({ newPost, setNewPost, handlePost }) {
-
-    // const [label, setLabel] = useState('');
-    // const [displayedImg, setDisplayedImg] = useState('');
-
-    console.log(newPost);
 
     const handleChange = (e) => {
         setNewPost({...newPost, label: e.target.value});
@@ -23,8 +17,6 @@ function NewPost({ newPost, setNewPost, handlePost }) {
                 className="inputField" />
 
             <img src={newPost.image} alt={newPost.label} />
-
-            {/* post button should redirect to me/posts, and send post request with result info and label */}
 
             <button onClick={handlePost}>post</button>
 

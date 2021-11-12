@@ -1,0 +1,15 @@
+.static {
+
+    position: fixed;
+
+    margin-left: 225px;
+    margin-top: 225px;
+
+    padding: 50px;
+
+    width: 650px;
+    height: 500px;
+
+    background-color:rgba(200, 200, 200, 0.359);
+
+}

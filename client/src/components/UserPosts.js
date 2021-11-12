@@ -9,7 +9,11 @@ function UserPosts({ userPosts }) {
 
     return (
         <div className='userposts'>
-            {userPosts.length > 0? posts : <h3>try adding your first post!</h3>}
+            {
+             userPosts.length > 0 ?
+             posts : 
+             <h3>try adding your first post!</h3>
+            }
         </div>
     );
 

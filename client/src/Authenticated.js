@@ -32,10 +32,7 @@ function Authenticated({ currentUser, setCurrentUser }) {
 
     const [search, setSearch] = useState('');
 
-    const [newPost, setNewPost] = useState({image: '', thumb: '', label: ''})
-
-    // const [uploadedImg, setUploadedImg] = useState('');
-    // const [label, setLabel] = useState('');
+    const [newPost, setNewPost] = useState({image: '', thumb: '', label: ''});
 
     useEffect(() => {
         fetch(`/api/me`)
@@ -117,10 +114,6 @@ function Authenticated({ currentUser, setCurrentUser }) {
       }
 
       const handlePost = () => {
-        // const body = {
-        //   image: result.info.secure_url,
-        //   thumb: result.info.eager[0].secure_url
-        // }
         fetch('/api/posts', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
@@ -137,13 +130,13 @@ function Authenticated({ currentUser, setCurrentUser }) {
       const filteredChums = chumsList.filter(chum => (chum.username || '').toLowerCase().includes(search.toLowerCase()));
 
     return (
-        <div>
+        <div className="authapp">
 
-            <Navigation />
+            {/* <Navigation /> */}
 
             <Switch>
 
-            <Route path='/me/posts/new'>
+                <Route path='/me/posts/new'>
                     <StaticContainer data={userInfo} dataType='user' handleUpload={handleUpload} />
                     <NewPost newPost={newPost} setNewPost={setNewPost} handlePost={handlePost} />
                 </Route>
@@ -152,11 +145,6 @@ function Authenticated({ currentUser, setCurrentUser }) {
                     <StaticContainer data={userInfo} dataType='user' handleUpload={handleUpload} />
                     <PostDetails />
                 </Route>
-
-                {/* <Route path='/me/posts/new'>
-                    <StaticContainer data={userInfo} dataType='user'  />
-                    <NewPost newPost={newPost} setNewPost={setNewPost} handlePost={handlePost} />
-                </Route>  */}
 
                 <Route path='/me/edit'>
                     <StaticContainer data={newUserInfo} dataType='edituser' />
