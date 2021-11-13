@@ -1,5 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import CloudinaryUpload from './CloudinaryUpload';
+import {ReactComponent as Bunny} from './bunny.svg';
 
 import Navigation from './Navigation';
 
@@ -15,9 +16,12 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
 
                 <Navigation />
 
-                <div className='pp' style={{backgroundColor: data.pp ?
+                <div className='pp' >
+                    {/* style={{backgroundColor: data.pp ?
                                                              data.pp :
-                                                             '#FFFF00'}}>xd</div>
+                                                             '#FFFF00'}}> */}
+                    <Bunny id='bunny' style={{fill: data.pp}} />
+                </div>
 
                 <div className="userData">
                     <h2>name: {`${data.name}`.toLowerCase()}</h2>

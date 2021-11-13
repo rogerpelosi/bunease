@@ -31,13 +31,17 @@ function Login({ setCurrentUser }) {
     };
 
     return (
-        <div className="login">
+
+        <div className="home">
+        <div className="static">
+
+            <h1>bunease</h1>
 
             <Redirect to='/api/login' /> 
 
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} className='form'>
 
-                <h1>login</h1>
+                {/* <h1>login</h1> */}
 
                 <div className='loginInputs'>
 
@@ -67,11 +71,9 @@ function Login({ setCurrentUser }) {
                         </button>
                     </p>
 
-                    <p>or</p>
-
-                    <p>
+                    <p className='or'>
                         <Link className='signupButton' to='/api/signup'>
-                            sign up
+                        or sign up
                         </Link>
                     </p>
 
@@ -79,6 +81,7 @@ function Login({ setCurrentUser }) {
 
             </form>
 
+        </div>
         </div>
     );
 
