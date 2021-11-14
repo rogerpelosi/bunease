@@ -35,7 +35,7 @@ function Login({ setCurrentUser }) {
         <div className="home">
         <div className="static">
 
-            <h1>bunease</h1>
+            <h1 className='logo'>bunease©</h1>
 
             <Redirect to='/api/login' /> 
 

@@ -10,8 +10,11 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
 
     let history = useHistory();
 
+    const color = data.pp ? data.pp : 'rgb(0, 187, 255)';
+
     if (dataType === 'user' || dataType === 'edituser') {
         return (
+            <div className="StaticContainer">
             <div className="static">
 
                 <Navigation />
@@ -20,7 +23,7 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
                     {/* style={{backgroundColor: data.pp ?
                                                              data.pp :
                                                              '#FFFF00'}}> */}
-                    <Bunny id='bunny' style={{fill: data.pp}} />
+                    <Bunny id='bunny' style={{fill: color}} />
                 </div>
 
                 <div className="userData">
@@ -47,6 +50,7 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
                     handleUpload={handleUpload} />)
                 }
 
+            </div>
             </div>
         );
     } else if (dataType === 'chums') {

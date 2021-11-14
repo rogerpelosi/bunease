@@ -37,7 +37,7 @@ function Signup({ setCurrentUser }) {
         <div className='home'>
         <div className="static">
 
-            <h1>bunease</h1>
+            <h1 className='logo'>bunease©</h1>
 
             <form onSubmit={handleSignup} className='form'>
 
@@ -55,7 +55,7 @@ function Signup({ setCurrentUser }) {
                             className="inputField" />
                     </p>
 
-                    <p>
+                    {/* <p>
                         <input
                             type="text"
                             name="email"
@@ -63,7 +63,7 @@ function Signup({ setCurrentUser }) {
                             value={email}
                             onChange={(e) => setSignupData({...signupData, [e.target.name]: e.target.value})}
                             className="inputField" />
-                    </p>
+                    </p> */}
 
                     <p>
                         <input
@@ -79,8 +79,18 @@ function Signup({ setCurrentUser }) {
                         <input
                             type="text"
                             name="password_confirmation"
-                            placeholder='confirm password'
+                            placeholder='confirm pass...'
                             value={password_confirmation}
+                            onChange={(e) => setSignupData({...signupData, [e.target.name]: e.target.value})}
+                            className="inputField" />
+                    </p>
+
+                    <p>
+                        <input
+                            type="text"
+                            name="email"
+                            placeholder='email'
+                            value={email}
                             onChange={(e) => setSignupData({...signupData, [e.target.name]: e.target.value})}
                             className="inputField" />
                     </p>

@@ -132,7 +132,9 @@ function Authenticated({ currentUser, setCurrentUser }) {
     return (
         <div className="authapp">
 
-            {/* <Navigation /> */}
+            <h1 className='logo'>bunease©</h1>
+
+            <Navigation />
 
             <Switch>
 
@@ -182,7 +184,7 @@ function Authenticated({ currentUser, setCurrentUser }) {
 
             </Switch>
 
-            <button onClick={handleLogout}>
+            <button id="logout" onClick={handleLogout}>
                 logout
             </button>
     
