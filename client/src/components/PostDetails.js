@@ -59,7 +59,7 @@ function PostDetails() {
                <button onClick={() => history.goBack()}>back</button>
            </h2>
 
-           <img src={image} alt={label} />
+           <img className='singleimg' src={image} alt={label} />
 
             {postComments}
 

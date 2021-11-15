@@ -25,6 +25,7 @@ class Api::UsersController < ApplicationController
 
     def me 
         if current_user
+            @user_posts = current_user.posts.order(created_at: :desc)
             render json: current_user, include: ['posts', 'posts.comments', 'followgainers'], 
             status: :ok
           else

@@ -122,7 +122,7 @@ function Authenticated({ currentUser, setCurrentUser }) {
           .then(res => res.json())
           .then(post => {
             console.log(post);
-            setUserPosts([...userPosts, post]);
+            setUserPosts([post,...userPosts]);
             history.push('/me')
           })
       };

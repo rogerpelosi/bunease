@@ -81,6 +81,9 @@
 
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Syne&display=swap');
@@ -91,10 +94,40 @@
 
     position: fixed;
 
-    margin-top: 105px;
+    margin-top: 75px;
     margin-left: 225px;
 
-    font-size: 95px;
+    font-size: 125px;
+}
+
+#nav {
+
+    display: flex;
+
+    position: fixed;
+
+    margin-top: 225px;
+    margin-left: 235px;
+
+}
+
+#nav a {
+    padding: 12px;
+    padding-right: 55px;
+    font-size: 26px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    color: #FF6700;
+    font-weight: 500;
+}
+
+#nav a:focus {
+    font-weight: 800;
+    color: #ff4d00;
+}
+
+#nav a:hover {
+    color: #c0ff02
 }
 
 .static {
@@ -102,7 +135,7 @@
     position: fixed;
 
     margin-left: 225px;
-    margin-top: 225px;
+    margin-top: 285px;
 
     padding: 50px;
 
@@ -112,12 +145,48 @@
     border-radius: 50px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-    font-family: 'Michroma', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
 
 }
 
+.static h2 {
+    font-weight: 200;
+}
+
+.static:hover {
+    /* background-color: rgba(255, 255, 255, 0.708) */
+    background-color: #c0ff02;
+}
+
 .userposts {
+
     float: right;
+    margin-right: 495px;
+    margin-top: 380px;
+
+    width: 600px;
+
+    display: flex;
+}
+
+.userpost img {
+
+    width: 415px;
+    height: 415px;
+
+    padding: 3px;
+
+    object-fit: cover;
+
+}
+
+.singleimg {
+
+    width: auto; 
+    height: 700px;
+
+    object-fit: cover;
 }
 
 #logout {
@@ -130,11 +199,13 @@
     font-size: 16px;
     font-family: 'Michroma', sans-serif;
 
-    margin-left: 245px;
-    margin-top: 855px;
+    margin-left: 235px;
+    margin-top: 915px;
 
     border-radius: 6px;
     border-color: transparent;
+
+    background-color: #4db858;
 
 }
 
@@ -149,4 +220,21 @@
 
     /* filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.2)); */
 
+}
+
+.postdetails{
+    float: right;
+
+    width: 700px;
+    height: 600px;
+
+    margin-right: 415px;
+}
+
+.search,
+.chum,
+.chumposts,
+.chumDetails,
+.postdetails {
+    float: right;
 }

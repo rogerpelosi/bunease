@@ -2,7 +2,7 @@ import { Link, useHistory } from 'react-router-dom';
 import CloudinaryUpload from './CloudinaryUpload';
 import {ReactComponent as Bunny} from './bunny.svg';
 
-import Navigation from './Navigation';
+// import Navigation from './Navigation';
 
 // this is intended to be a static div that holds a chum list or current user data, will be approx the same size as login and sign up divs as well
 
@@ -17,7 +17,8 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
             <div className="StaticContainer">
             <div className="static">
 
-                <Navigation />
+                {/* <Navigation /> */}
+                <h2>how's it hanging, {data.username}?</h2><br />
 
                 <div className='pp' >
                     {/* style={{backgroundColor: data.pp ?
@@ -57,14 +58,14 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
         return (
             <div className="static">
 
-                <Navigation />
+                {/* <Navigation /> */}
 
                 <div className="chumData">
 
                     <h1>your chums</h1>
                     
                     {data.map(chum => 
-                        <div className="chum" key={chum.username}>
+                        <div className="chumData" key={chum.username}>
                             <Link to={`/users/${chum.id}`}>
                                 <h3>{`${chum.username}`.toLowerCase()}</h3>
                             </Link>

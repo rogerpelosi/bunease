@@ -28,7 +28,7 @@ function ChumDetails({ userChums, handleFollow, handleUnFollow }) {
     // console.log(chum)
     // loop through user chums array to see if chum.id is found in each userchum hash or not
     return (
-        <div>
+        <div className='chumDetails'>
 
             <div className='pp' style={{backgroundColor: chum.pp ? chum.pp :'#FFFF00'}}>
                 xd

@@ -25,7 +25,7 @@ function Navigation() {
     return (
         <div>
 
-            <nav>
+            <nav id='nav'>
 
                 <Link to='/me' onClick={() => history.push('/me')}>
                     me

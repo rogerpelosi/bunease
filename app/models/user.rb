@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-    has_many :posts
+    has_many :posts, -> { order(created_at: :desc) }
     has_many :comments
 
     has_secure_password
