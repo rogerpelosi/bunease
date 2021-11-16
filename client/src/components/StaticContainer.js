@@ -58,20 +58,19 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
         return (
             <div className="static" id='internalstatic'>
 
-                {/* <Navigation /> */}
-
                 <div className="chumData">
 
-                    <h1>your chums</h1>
-                    
-                    {data.map(chum => 
-                        <div className="chumData" key={chum.username}>
+                    <h1>your chums</h1><br />
+                    <div className="chumcontainer">
+                        {data.map(chum => 
+                        <div className="chumlist" key={chum.username}>
                             <Link to={`/users/${chum.id}`}>
                                 <h3>{`${chum.username}`.toLowerCase()}</h3>
                             </Link>
                             <h3>{`${chum.name}`.toLowerCase()}</h3>
                             <button onClick={() => handleUnFollow(chum)}>remove</button>
                         </div>)}
+                    </div>
 
                 </div>
 

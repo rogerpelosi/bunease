@@ -50,9 +50,9 @@ function PostDetails() {
     return (
        <div className='postdetails'>
 
-            {/* <h2>
+            <h2>
                <button id='postback' onClick={() => history.goBack()}>back</button>
-           </h2> */}
+           </h2>
 
            <Link to={`/users/${user.id}`} id='postowner'>
                 <h2>{username}</h2>
@@ -68,11 +68,11 @@ function PostDetails() {
 
            </div>
 
-           <h2>
+           {/* <h2>
                <button id='postback' onClick={() => history.goBack()}>
                    back
                 </button>
-           </h2>
+           </h2> */}
 
             {/* {postComments} */}
 

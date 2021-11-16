@@ -129,6 +129,8 @@ function Authenticated({ currentUser, setCurrentUser }) {
 
       const filteredChums = chumsList.filter(chum => (chum.username || '').toLowerCase().includes(search.toLowerCase()));
 
+    //   filtered posts upon removal of a friend 
+
     return (
         <div className="authapp">
 
