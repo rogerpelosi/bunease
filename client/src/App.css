@@ -94,7 +94,7 @@
 
     position: fixed;
 
-    margin-top: 75px;
+    margin-top: 45px;
     margin-left: 225px;
 
     font-size: 125px;
@@ -106,8 +106,8 @@
 
     position: fixed;
 
-    margin-top: 225px;
-    margin-left: 235px;
+    margin-top: 222px;
+    margin-left: 275px;
 
 }
 
@@ -117,8 +117,12 @@
     font-size: 26px;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    border-radius: 15px 15px 0px 0px;
     color: #FF6700;
     font-weight: 500;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 #nav a:focus {
@@ -127,10 +131,12 @@
 }
 
 #nav a:hover {
-    color: #c0ff02
+    color: white;
+    background-color: #c0ff02;
 }
 
-.static {
+.static,
+#internalstatic {
 
     position: fixed;
 
@@ -150,11 +156,12 @@
 
 }
 
-.static h2 {
+.static h2,
+#internalstatic h2 {
     font-weight: 200;
 }
 
-.static:hover {
+#internalstatic:hover {
     /* background-color: rgba(255, 255, 255, 0.708) */
     background-color: #c0ff02;
 }
@@ -184,9 +191,14 @@
 .singleimg {
 
     width: auto; 
-    height: 700px;
+    height: 600px;
 
     object-fit: cover;
+}
+
+.imgcont {
+    height: 600px;
+    width: 1000px;
 }
 
 #logout {
@@ -196,8 +208,9 @@
     width: 155px;
     height: 55px;
 
-    font-size: 16px;
-    font-family: 'Michroma', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
 
     margin-left: 235px;
     margin-top: 915px;
@@ -205,8 +218,58 @@
     border-radius: 6px;
     border-color: transparent;
 
-    background-color: #4db858;
+    background-color: #41c34e;
+    color: white;
 
+}
+
+#logout:hover {
+    box-shadow: 0px 0px 20px 20px #41c34e;
+
+}
+
+#postback {
+
+    width: 155px;
+    height: 55px;
+
+    border-radius: 6px;
+    border-color: transparent;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+
+    margin-bottom: 0;
+
+    background-color: #f9981a;
+    color: white;
+
+}
+
+#postback:hover {
+    box-shadow: 0px 0px 20px 20px #f9981a;
+}
+
+#postcomment {
+
+    width: 155px;
+    height: 55px;
+
+    border-radius: 6px;
+    border-color: transparent;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+
+    background-color: rgb(251, 230, 1);
+    color: white;
+    
+}
+
+#postcomment:hover {
+    box-shadow: 0px 0px 20px 20px rgb(251, 230, 1);
 }
 
 #bunny {
@@ -216,7 +279,7 @@
 
     float: right;
 
-    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 1));
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 1));
 
     /* filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.2)); */
 
@@ -225,10 +288,88 @@
 .postdetails{
     float: right;
 
-    width: 700px;
+    width: 1000px;
     height: 600px;
 
-    margin-right: 415px;
+    margin-right: 115px;
+    margin-top: 85px;
+
+    padding: 20px;
+}
+
+.postdetails a,
+.postdetails h2 {
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    color: rgba(126, 6, 165, 0.927);
+    margin-bottom: 0%;
+}
+
+.postdetails h2 {
+    font-size: 28px;
+}
+
+.postdetails h2:hover {
+    color:rgba(241, 47, 186, 0.927)
+}
+
+.postdetails h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: rgba(178, 91, 206, 0.927);
+    margin: 0;
+}
+
+.allcomments {
+    width: 500px;
+    height: 500px;
+    overflow-y: scroll;
+    border-color: #41c34e;
+    border-width: 6px;
+    border-style: solid;
+}
+
+.comments {
+    display: flex;
+    /* margin-bottom: 10px; */
+    width: 500px;
+    height: auto;
+    float: left;
+}
+
+.commentuser {
+    color: rgb(8, 167, 167);
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+.commentuser:hover {
+    color: rgb(4, 95, 95);
+}
+
+.comment {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    padding-top: 3px;
+}
+
+.newComment {
+    
+    float: left;
+    margin-top: 20px;
+    height: 500px;
+    padding-right: 25px;
+}
+
+.newComment input {
+    width: 300px;
+    height: 100px;
+    border-radius: 6px;
+    border-color: black;
+    border-width: 1.75px;
 }
 
 .search,

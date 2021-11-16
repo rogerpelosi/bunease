@@ -15,7 +15,7 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
     if (dataType === 'user' || dataType === 'edituser') {
         return (
             <div className="StaticContainer">
-            <div className="static">
+            <div className="static" id='internalstatic'>
 
                 {/* <Navigation /> */}
                 <h2>how's it hanging, {data.username}?</h2><br />
@@ -56,7 +56,7 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
         );
     } else if (dataType === 'chums') {
         return (
-            <div className="static">
+            <div className="static" id='internalstatic'>
 
                 {/* <Navigation /> */}
 

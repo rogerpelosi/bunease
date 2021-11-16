@@ -18,9 +18,9 @@ function PostDetails() {
         return (
             <div className="comments" key={comment.id}>
                 <Link to={`/users/${comment.user.id}`}>
-                    <p>{comment.user.username}</p>
+                    <p className="commentuser">{comment.user.username}</p>
                 </Link>
-                <p>{comment.comment}</p>
+                <p className='comment'>{comment.comment}</p>
             </div>);
         })
 
@@ -50,18 +50,31 @@ function PostDetails() {
     return (
        <div className='postdetails'>
 
-           <Link to={`/users/${user.id}`}>
+            {/* <h2>
+               <button id='postback' onClick={() => history.goBack()}>back</button>
+           </h2> */}
+
+           <Link to={`/users/${user.id}`} id='postowner'>
                 <h2>{username}</h2>
            </Link>
            <h3>{label}</h3>
 
-           <h2>
+           {/* <h2>
                <button onClick={() => history.goBack()}>back</button>
-           </h2>
+           </h2> */}
+           <div className='imgcontent'>
 
            <img className='singleimg' src={image} alt={label} />
 
-            {postComments}
+           </div>
+
+           <h2>
+               <button id='postback' onClick={() => history.goBack()}>
+                   back
+                </button>
+           </h2>
+
+            {/* {postComments} */}
 
             <div className='newComment'>
 
@@ -73,8 +86,16 @@ function PostDetails() {
                 className="search_input"
             />
 
-            <button onClick={() => handleComment(postInfo.id)}>comment</button>
+            <h2>
+                <button id='postcomment' onClick={() => handleComment(postInfo.id)}>
+                    comment
+                </button>
+            </h2>
 
+            </div>
+
+            <div className='allcomments'>
+            {postComments}
             </div>
      
        </div> 
