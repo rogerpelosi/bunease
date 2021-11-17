@@ -505,12 +505,13 @@
 }
 
 .chumDetails {
-    margin-top: 100px;
+    margin-top: 70px;
     margin-right: 500px;
     /* align-items: center; */
 }
 
 .chumintro {
+    position: fixed;
     width: 500px;
     height: 300px;
     font-family: 'Poppins', sans-serif;
@@ -586,6 +587,8 @@
     height: 425px;
 
     display: flex;
+    margin-top: 300px;
+    align-items: center;
 }
 
 #noposts {
@@ -599,6 +602,8 @@
     width: 155px;
     height: 55px;
 
+    position: fixed;
+
     border-radius: 6px;
     border-color: transparent;
 
@@ -610,7 +615,7 @@
 
     background-color:#c0ff02;
     color: black;
-    margin-top: 50px;
+    margin-top: 720px;
 }
 
 #userback:hover {
