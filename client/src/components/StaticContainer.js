@@ -11,6 +11,7 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
     let history = useHistory();
 
     const color = data.pp ? data.pp : 'rgb(0, 187, 255)';
+    const bio = data.bio === '' || data.bio === null ? 'say literally anything' : data.bio;
 
     if (dataType === 'user' || dataType === 'edituser') {
         return (
@@ -31,7 +32,7 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
                     <h2>name: {`${data.name}`.toLowerCase()}</h2>
                     <h2>username: {`${data.username}`.toLowerCase()}</h2>
                     <h2>email: {`${data.email}`.toLowerCase()}</h2>
-                    <h3>bio: "{`${data.bio}`.toLowerCase()}"</h3>
+                    <h3>bio: "{`${bio}`.toLowerCase()}"</h3>
                 </div>
 
                 {
@@ -65,9 +66,10 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
                         {data.map(chum => 
                         <div className="chumlist" key={chum.username}>
                             <Link to={`/users/${chum.id}`}>
-                                <h3>{`${chum.username}`.toLowerCase()}</h3>
+                                <h3>👥 {`${chum.username}`.toLowerCase()}</h3>
                             </Link>
-                            <h3>{`${chum.name}`.toLowerCase()}</h3>
+                            <h3>{`${chum.name === null || chum.name === '' ? 
+                                    'noname' : chum.name}`.toLowerCase()}</h3>
                             <button onClick={() => handleUnFollow(chum)}>remove</button>
                         </div>)}
                     </div>

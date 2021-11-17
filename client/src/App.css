@@ -285,6 +285,16 @@
 
 }
 
+.chumbunny {
+    width: 150px;
+    height: 250px;
+
+    float: right;
+    margin-right: 80px;
+
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 1));
+}
+
 .postdetails{
     float: right;
 
@@ -406,10 +416,12 @@
     overflow-y: scroll;
     width: 650px;
     height: 400px;
+    align-items: center;
 }
 
 .chumlist {
     display: flex;
+    align-items: center;
 }
 
 .chumlist h3 {
@@ -417,6 +429,10 @@
     font-weight: 500;
     font-size: 18px;
     padding-right: 8px;
+}
+
+.chumlist a {
+    text-decoration: none;
 }
 
 .chumlist button {
@@ -427,6 +443,8 @@
     font-size: 14px;
     border-radius: 6px;
     border-color: transparent;
+    float: right;
+    background-color: rgb(251, 230, 1);
 }
 
 .chumlist button:hover {
@@ -446,8 +464,128 @@
     text-align: left;
 }
 
+.search {
+    margin-top: 300px;
+    margin-right: 720px;
+}
+
+.search input {
+    width: 300px;
+    height: 50px;
+
+    border: 2px solid rgba(241, 47, 186, 0.927);
+    border-radius: 6px;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.search p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: rgba(201, 31, 153, 0.927);
+}
+
+.search a {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #FF6700;
+    margin-bottom: 15px;
+}
+
+.search a:hover {
+    color:rgb(251, 230, 1)
+}
+
+.chumDetails {
+    margin-top: 100px;
+    margin-right: 500px;
+    /* align-items: center; */
+}
+
+.chumintro {
+    width: 500px;
+    height: 300px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.chumintro h2 {
+    font-weight: 800;
+    font-size: 36px;
+    margin-bottom: 0;
+    color:rgb(0, 187, 255);
+}
+
+.chumintro h3 {
+    font-weight: 500;
+    font-size: 28px;
+    padding: 0;
+    margin: 0;
+    color: #41c34e;
+}
+
+.chumintro p {
+    font-weight: 200;
+    font-size: 20px;
+    color: rgba(201, 31, 153, 0.927);
+}
+
+#bigremove {
+    width: 155px;
+    height: 55px;
+
+    border-radius: 6px;
+    border-color: transparent;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+
+    color: white;
+    background-color:#ff007f;
+}
+
+#bigremove:hover {
+    box-shadow: 0px 0px 20px 20px #ff007f;
+}
+
+#bigadd {
+    width: 155px;
+    height: 55px;
+
+    border-radius: 6px;
+    border-color: transparent;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+
+    color: white;
+    background-color:rgba(126, 6, 165, 0.927);
+}
+
+#bigadd:hover {
+    box-shadow: 0px 0px 20px 20px rgba(126, 6, 165, 0.927);
+}
+
+.chumposts {
+    float: right;
+    /* margin-right: 495px;
+    margin-top: 380px; */
+
+    width: 600px;
+    height: 425px;
+
+    display: flex;
+}
+
 .search,
-.chum,
 .chumposts,
 .chumDetails,
 .postdetails {
