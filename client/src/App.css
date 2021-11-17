@@ -410,21 +410,28 @@
 }
 
 .chumData {
-    display: inline-block;
+    /* display: inline-block; */
     width: 650px;
     height: 500px;
 }
 
 .chumcontainer {
+
     overflow-y: scroll;
-    width: 650px;
+
+    width: 500px;
     height: 400px;
-    align-items: center;
+
+    border-left: 5px solid teal;
+    border-radius: 6px;
+    
 }
 
 .chumlist {
     display: flex;
     align-items: center;
+    width: 400px;
+    padding-left: 15px;
 }
 
 .chumlist h3 {
@@ -432,13 +439,29 @@
     font-weight: 500;
     font-size: 18px;
     padding-right: 8px;
+    color:rgba(126, 6, 165, 0.927);
 }
 
 .chumlist a {
     text-decoration: none;
 }
 
-.chumlist button {
+.chumlist h3:hover {
+    color:rgba(189, 112, 214, 0.927);
+}
+
+.chumcontainer .chumname {
+    font-weight: 200;
+    color:#ff007f;
+}
+
+.chumbuttoncont {
+    display: flex;
+    align-items: center;
+    width: 500px;
+}
+
+.chumcontainer button {
     width: 100px;
     height: 40px;
     font-family: 'Poppins', sans-serif;
@@ -450,7 +473,7 @@
     background-color: rgb(251, 230, 1);
 }
 
-.chumlist button:hover {
+.chumcontainer button:hover {
     background-color: red;
     color: white;
 }
@@ -465,6 +488,7 @@
     position: static;
     float: left;
     text-align: left;
+    color:#41c34e
 }
 
 .search {
@@ -620,6 +644,27 @@
 
 #userback:hover {
     box-shadow: 0px 0px 20px 20px #c0ff02;;
+}
+
+.chumsposts {
+    float: right;
+
+    width: 600px;
+    height: 425px;
+
+    display: flex;
+    margin-top: 340px;
+    margin-right: 500px;
+    align-items: center;
+}
+
+.chumsposts a img {
+    width: 415px;
+    height: 415px;
+
+    padding: 3px;
+
+    object-fit: cover;
 }
 
 .search,

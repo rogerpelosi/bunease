@@ -64,14 +64,18 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
                     <h1>your chums</h1><br />
                     <div className="chumcontainer">
                         {data.map(chum => 
+                        <div className="chumbuttoncont" key={chum.username}>
                         <div className="chumlist" key={chum.username}>
                             <Link to={`/users/${chum.id}`}>
                                 <h3>👥 {`${chum.username}`.toLowerCase()}</h3>
                             </Link>
-                            <h3>{`${chum.name === null || chum.name === '' ? 
+                            <h3 className='chumname'>{`${chum.name === null || chum.name === '' ? 
                                     'noname' : chum.name}`.toLowerCase()}</h3>
-                            <button onClick={() => handleUnFollow(chum)}>remove</button>
-                        </div>)}
+                            {/* <button onClick={() => handleUnFollow(chum)}>remove</button> */}
+                        </div>
+                        <button onClick={() => handleUnFollow(chum)}>remove</button>
+                        </div>
+                        )}
                     </div>
 
                 </div>

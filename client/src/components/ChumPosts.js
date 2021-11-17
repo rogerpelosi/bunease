@@ -8,7 +8,7 @@ function ChumPosts({ chumPosts }) {
     <PostCard key={post.id} post={post} postType='chums' /> );
 
     return (
-        <div className="chumposts">
+        <div className="chumsposts">
             {posts}
         </div>
     );

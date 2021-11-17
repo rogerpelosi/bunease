@@ -8,7 +8,7 @@ function PostCard({ post, postType }) {
 
     if(postType === 'chums') {
         return (
-            <div className="chumpost">
+            <div className="chumspost">
 
                 <Link to={`/users/${post.user.id}`}>
                     <h2>{post.user.username}</h2>
