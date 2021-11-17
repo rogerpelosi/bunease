@@ -57,13 +57,13 @@ function ChumDetails({ userChums, handleFollow, handleUnFollow }) {
                 chumPosts.length > 0 ?
                 chumPosts.map(post =>
                     <PostCard key={post.id} post={post} postType='chum' /> ) :
-                <p>{chum.username} hasn't posted yet :o</p> 
+                <p id='noposts'>🚫 ruh-roh, {chum.username} hasn't posted yet :o 👿</p> 
             }
 
             </div>
 
             <h2>
-               <button onClick={() => history.goBack()}>back</button>
+               <button id='userback' onClick={() => history.goBack()}>back</button>
             </h2>
 
         </div>
