@@ -14,6 +14,7 @@ class User < ApplicationRecord
     has_many :followers, through: :following_users
 
     validates :username, uniqueness: true, presence: true
+    # validates :bio, length: { maximum: 200 }
     
 end
 

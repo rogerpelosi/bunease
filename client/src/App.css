@@ -83,6 +83,27 @@
 
 }
 
+.error {
+    color: red;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.signuperror {
+    color: red;
+    font-weight: 500;
+    float: right;
+    width: 450px;
+    margin-right: 150x;
+}
+
+.commenterror {
+    width: 300px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    overflow: auto;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
@@ -124,8 +145,6 @@
 
 }
 
-
-
 #nav a:focus {
     font-weight: 800;
     color: #ff4d00;
@@ -133,11 +152,10 @@
 
 #nav a:hover {
     
-    color: #c0ff02;
+    background-color: #ff660023;
 }
 
-.static,
-#internalstatic {
+.static {
 
     position: fixed;
 
@@ -158,15 +176,67 @@
 
 }
 
-.static h2,
-#internalstatic h2 {
-    font-weight: 200;
+.static #greetinguser {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    margin-top: 0;
+    text-shadow: 1px 1px 1px rgb(11, 11, 11);
 }
 
-#internalstatic{
-    /* background-color: rgba(255, 255, 255, 0.708) */
-    background-color: rgba(255, 255, 255, 0.79);
-    /* #c0ff02; */
+.static h2 {
+    font-weight: 200;
+    font-size: 30px;
+    color:rgba(126, 6, 165, 0.927);
+}
+
+.static h3 {
+    font-weight: 500;
+    font-size: 22px;
+    color:rgb(8, 167, 167);
+}
+
+.static label {
+    font-weight: 500;
+    font-size: 18px;
+    color:#f9981a;
+    padding-right: 10px;
+    text-decoration: underline;
+    text-decoration-color: #ff007f;
+    text-decoration-thickness: 3px;
+}
+
+.static #edit {
+    width: 100px;
+    height: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 6px;
+    border-color: transparent;
+    margin-right: 15px;
+    background-color: rgb(0, 187, 255);
+    color: white;
+}
+
+.static #edit:hover {
+    background-color:rgba(189, 112, 214, 0.927);
+}
+
+.cloudbutton {
+    width: 100px;
+    height: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 6px;
+    border-color: transparent;
+    background-color: rgb(1, 113, 251);
+    color: white;
+}
+
+.cloudbutton:hover {
+    background-color:#FF6700
 }
 
 .userposts {
@@ -382,6 +452,7 @@
     width: 500px;
     height: 250px;
     overflow-y: scroll;
+    /* overflow-x: auto; */
     border-left: 5px solid #ff007f;
     border-radius: 6px;
     margin-top: 20px;
@@ -394,6 +465,7 @@
     height: auto;
     float: left;
     padding-left: 10px;
+    /* overflow: auto; */
 
 }
 
@@ -411,6 +483,13 @@
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     padding-top: 3px;
+    overflow: auto;
+    width: 300px;
+    height: auto;
+}
+
+.comment.letters {
+    word-wrap: break-word;
 }
 
 .newComment {
@@ -530,7 +609,7 @@
 .chumData h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
-    font-size: 38px;
+    font-size: 36px;
     margin-top: 0;
     margin-left: 0;
     margin-right: 50px;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Redirect, Link, useHistory } from 'react-router-dom';
 
-function Login({ setCurrentUser }) {
+function Login({ setCurrentUser, errors, setErrors }) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -24,7 +24,8 @@ function Login({ setCurrentUser }) {
                 })
             } else {
                 res.json().then(errors => {
-                    console.error(errors)
+                    console.error(errors);
+                    setErrors(errors.error)
                 })
             }
         })
@@ -40,7 +41,7 @@ function Login({ setCurrentUser }) {
                 login
             </Link>
 
-            <Link id='signupButton' to='/api/signup'>
+            <Link id='signupButton' to='/api/signup' onClick={() => setErrors(null)}>
                 sign up
             </Link>
 
@@ -84,11 +85,11 @@ function Login({ setCurrentUser }) {
                         </button>
                     </p>
 
-                    {/* <p className='or'>
-                        <Link className='signupButton' to='/api/signup'>
-                        or sign up
-                        </Link>
-                    </p> */}
+                    <p className='error'>
+                     {errors ?
+                     `🐇 ruh-roh, ${errors} :-(`.toLowerCase() :
+                     null}
+                    </p>
 
                 </div>
 

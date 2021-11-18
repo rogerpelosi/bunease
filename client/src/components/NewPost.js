@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 
 function NewPost({ newPost, setNewPost, handlePost }) {
 
@@ -5,8 +6,14 @@ function NewPost({ newPost, setNewPost, handlePost }) {
         setNewPost({...newPost, label: e.target.value});
     }
 
+    let history = useHistory();
+
     return (
         <div>
+
+            <h2>
+               <button id='newpostback' onClick={() => history.push('/me')}>back</button>
+            </h2>
 
             <input
                 type="text"

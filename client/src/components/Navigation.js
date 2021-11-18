@@ -45,7 +45,7 @@ function Navigation() {
                     handleUpload={handleUpload}
                 /> */}
 
-                <Link>faq</Link>
+                <Link to='/me' onClick={() => history.push('/me')}>faq</Link>
 
             </nav>
 

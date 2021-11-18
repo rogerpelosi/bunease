@@ -5,8 +5,7 @@ function SearchChums({ search, setSearch, chums }) {
     const searchedChums = chums.map(chum => {
         return <div className="chum" key={chum.id}>
                     <Link to={`/users/${chum.id}`}>
-                    🐰 {`${chum.username}`.toLowerCase()} 
-                    {`${chum.name}`.toLowerCase()} 
+                    🐰 {`${chum.username}`.toLowerCase()} {`${chum.name ? chum.name : 'noname'}`.toLowerCase()} 
                     </Link>
                     <br /><br />
                 </div>})

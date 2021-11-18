@@ -56,7 +56,7 @@ function CloudinaryUpload({ preset, handleUpload, buttonText }) {
         //   {buttonText}
         // </a>
 
-        <button id={generateId()}>{buttonText}</button>
+        <button className='cloudbutton' id={generateId()}>{buttonText}</button>
       );
     }
 

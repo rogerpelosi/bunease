@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { useHistory, Link } from 'react-router-dom';
 
-function Signup({ setCurrentUser }) {
+function Signup({ setCurrentUser, errors, setErrors }) {
 
     const history = useHistory();
 
@@ -26,7 +26,8 @@ function Signup({ setCurrentUser }) {
                   })
                 } else {
                   res.json().then(errors => {
-                    console.error(errors)
+                    console.error(errors);
+                    setErrors(errors)
                   })
                 }
               }
@@ -39,7 +40,7 @@ function Signup({ setCurrentUser }) {
 
         <div className="unauthnav">
 
-        <Link className="loginButton" to="/api/login">
+        <Link className="loginButton" to="/api/login" onClick={() => setErrors(null)}>
             login
         </Link>
 
@@ -52,6 +53,13 @@ function Signup({ setCurrentUser }) {
         <div className="static">
 
             <h1 className='logo'>bunease©</h1>
+
+            <div className='signuperror'>
+                {errors ?
+                (errors.map(error => 
+                    <p key={error}>🐇 {error.toLowerCase()} :-o</p> )) :
+                null}
+            </div>
 
             <form onSubmit={handleSignup} className='form'>
 
@@ -114,12 +122,13 @@ function Signup({ setCurrentUser }) {
                             sign up
                         </button>
                     </p>
-{/* 
-                    <p className="or">
-                        <Link className="loginButton" to="/api/login">
-                        or login
-                        </Link>
-                    </p> */}
+
+                    {/* <div className='signuperror'>
+                     {errors ?
+                     (errors.map(error => 
+                        <p key={error}>{error.toLowerCase()} :-o</p> )) :
+                     null}
+                    </div> */}
 
                 </div>
 

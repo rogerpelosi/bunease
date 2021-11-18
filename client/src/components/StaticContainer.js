@@ -16,10 +16,10 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
     if (dataType === 'user' || dataType === 'edituser') {
         return (
             <div className="StaticContainer">
-            <div className="static" id='internalstatic'>
+            <div className="static">
 
                 {/* <Navigation /> */}
-                <h2>how's it hanging, {data.username}?</h2><br />
+                <h2 id='greetinguser' style={{color: color}}>👋 how's it hanging, {`${data.name}`.toLowerCase()}?</h2><br />
 
                 <div className='pp' >
                     {/* style={{backgroundColor: data.pp ?
@@ -29,12 +29,14 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
                 </div>
 
                 <div className="userData">
-                    <h2>name: {`${data.name}`.toLowerCase()}</h2>
-                    <h2>username: {`${data.username}`.toLowerCase()}</h2>
-                    <h2>email: {`${data.email}`.toLowerCase()}</h2>
-                    <h3>say something: "{`${bio}`.toLowerCase()}"</h3>
-                    <label for="mood">set your mood:</label>
-                    <select name="mood" id="mood">
+                    <h2>👤 username: {`${data.username}`.toLowerCase()}</h2>
+                    <h2>📧 email: {`${data.email}`.toLowerCase()}</h2>
+                    <h3>💬 say something: "{`${bio}`.toLowerCase()}"</h3>
+                    {
+                    dataType === 'edituser' ? null :
+                    (<div>
+                        <label for="mood">set your mood:</label>
+                            <select name="mood" id="mood">
                         <option value="volvo">🐇</option>
                         <option value="volvo">😡</option>
                         <option value="saab">😈</option>
@@ -50,14 +52,16 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
                         <option value="audi">😳</option>
                         <option value="audi">💩</option>
                         <option value="audi">😕</option>
-                        <option value="volvo">🕳️</option>
-                    </select>
-                </div>
+                        <option value="volvo">🤡</option>
+                            </select>
+                    </div>)
+                    }
+                </div><br /><br />
 
                 {
                     dataType === 'edituser'? 
                     null :
-                    (<button onClick={() => history.push('/me/edit')}>
+                    (<button id='edit' onClick={() => history.push('/me/edit')}>
                         edit
                     </button>)
                 }
@@ -76,7 +80,7 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
         );
     } else if (dataType === 'chums') {
         return (
-            <div className="static" id='internalstatic'>
+            <div className="static">
 
                 <div className="chumData">
 

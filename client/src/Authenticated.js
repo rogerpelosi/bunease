@@ -17,7 +17,7 @@ import SearchChums from './components/SearchChums';
 
 function Authenticated({ currentUser, setCurrentUser }) {
 
-    const history = useHistory();
+    let history = useHistory();
 
     const [update, setUpdate] = useState(false);
 
@@ -75,7 +75,7 @@ function Authenticated({ currentUser, setCurrentUser }) {
               headers: {'Content-Type': 'application/json'},
               body: JSON.stringify(newUserInfo)})
               .then(resp => console.log(resp))
-              .then(setUserInfo({...userInfo, username: newUserInfo.username, name: newUserInfo.name, email: newUserInfo.email, bio: newUserInfo.bio, pp: newUserInfo.pp}))
+              .then(setUserInfo({...userInfo, username: newUserInfo.username, name: newUserInfo.name, email: newUserInfo.email, bio: newUserInfo.bio, pp: newUserInfo.pp}), history.push('/me'))
       };
 
       const handleFollow = (chum) => {

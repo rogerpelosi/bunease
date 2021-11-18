@@ -13,6 +13,7 @@ function PostDetails() {
 
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
+    const [error, setError] = useState(null);
 
     const postComments = comments.map(comment => {
         return (
@@ -42,9 +43,18 @@ function PostDetails() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({post_id: postId, comment: newComment})
         })
-        .then(resp => resp.json())
-        .then(comment => setComments([...comments, comment]))
-        .then(setNewComment(''))
+        .then(resp => {
+            if(resp.ok){
+                resp.json().then(comment => {setComments([...comments, comment])
+                                             setNewComment('')
+                                            setError(null)})
+            } else {
+                resp.json().then(errors => {
+                    console.error(errors);
+                setError(errors)})
+            }
+        })
+        //comment => setComments([...comments, comment])
     }
 
     return (
@@ -91,6 +101,10 @@ function PostDetails() {
                     comment
                 </button>
             </h2>
+
+            <div className='commenterror'>
+            {error ? <p className='error'>{error} 😈</p> : null}
+            </div>
 
             </div>
 
