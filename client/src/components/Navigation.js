@@ -45,6 +45,8 @@ function Navigation() {
                     handleUpload={handleUpload}
                 /> */}
 
+                <Link>faq</Link>
+
             </nav>
 
         </div>

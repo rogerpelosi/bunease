@@ -110,13 +110,13 @@
     position: fixed;
 
     margin-top: 222px;
-    margin-left: 275px;
+    margin-left: 285px;
 
 }
 
 #nav a {
     padding: 12px;
-    padding-right: 55px;
+    padding-right: 50px;
     font-size: 26px;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
@@ -134,8 +134,8 @@
 }
 
 #nav a:hover {
-    color: white;
-    background-color: #c0ff02;
+    
+    color: #c0ff02;
 }
 
 .static,
@@ -164,9 +164,10 @@
     font-weight: 200;
 }
 
-#internalstatic:hover {
+#internalstatic{
     /* background-color: rgba(255, 255, 255, 0.708) */
-    background-color: #c0ff02;
+    background-color: rgba(255, 255, 255, 0.79);
+    /* #c0ff02; */
 }
 
 .userposts {
@@ -420,7 +421,7 @@
     overflow-y: scroll;
 
     width: 500px;
-    height: 400px;
+    height: 350px;
 
     border-left: 5px solid teal;
     border-radius: 6px;
@@ -485,6 +486,7 @@
     margin-top: 0;
     margin-left: 0;
     margin-right: 50px;
+    margin-bottom:20px;
     position: static;
     float: left;
     text-align: left;
