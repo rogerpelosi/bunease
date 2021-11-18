@@ -32,7 +32,26 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
                     <h2>name: {`${data.name}`.toLowerCase()}</h2>
                     <h2>username: {`${data.username}`.toLowerCase()}</h2>
                     <h2>email: {`${data.email}`.toLowerCase()}</h2>
-                    <h3>bio: "{`${bio}`.toLowerCase()}"</h3>
+                    <h3>say something: "{`${bio}`.toLowerCase()}"</h3>
+                    <label for="mood">set your mood:</label>
+                    <select name="mood" id="mood">
+                        <option value="volvo">🐇</option>
+                        <option value="volvo">😡</option>
+                        <option value="saab">😈</option>
+                        <option value="opel">🙂</option>
+                        <option value="audi">🥲</option>
+                        <option value="audi">🤪</option>
+                        <option value="audi">😒</option>
+                        <option value="audi">😮‍💨</option>
+                        <option value="audi">🤢</option>
+                        <option value="audi">🥵</option>
+                        <option value="audi">🥶</option>
+                        <option value="audi">🥳</option>
+                        <option value="audi">😳</option>
+                        <option value="audi">💩</option>
+                        <option value="audi">😕</option>
+                        <option value="volvo">🕳️</option>
+                    </select>
                 </div>
 
                 {

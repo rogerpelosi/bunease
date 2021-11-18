@@ -15,9 +15,26 @@
 
 }
 
+.home a {
+    padding: 12px;
+    padding-right: 50px;
+    font-size: 26px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    border-radius: 15px 15px 0px 0px;
+    color: rgb(0, 187, 255);
+    font-weight: 500;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.home a:hover {
+    color: rgb(1, 113, 251);
+}
+
 .logo {
 
-    font-size: 85px;
+    font-size: 115px;
     color: rgb(0, 187, 255);
     margin: 0px;
     text-shadow: 2px 2px 2px rgb(1, 113, 251);
@@ -43,7 +60,7 @@
 
 }
 
-  .form button:hover {
+.form button:hover {
 
     box-shadow: 0px 0px 20px 20px rgb(235, 233, 233);
     /* #39FF14; */
@@ -66,32 +83,10 @@
 
 }
 
-.or,
-.or a {
-    
-    font-size: 24px;
-    color: black;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-
-}
-
-.or:hover,
-.or a:hover {
-
-    color: rgb(1, 113, 251);
-
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Syne&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
 .authapp h1 {
 
@@ -103,7 +98,8 @@
     font-size: 125px;
 }
 
-#nav {
+#nav,
+.unauthnav {
 
     display: flex;
 
@@ -128,6 +124,8 @@
 
 }
 
+
+
 #nav a:focus {
     font-weight: 800;
     color: #ff4d00;
@@ -147,6 +145,7 @@
     margin-top: 285px;
 
     padding: 50px;
+    background-color: rgba(255, 255, 255, 0.79);
 
     width: 650px;
     height: 500px;
@@ -174,7 +173,7 @@
 
     float: right;
     margin-right: 495px;
-    margin-top: 380px;
+    margin-top: 370px;
 
     width: 600px;
 
@@ -253,6 +252,48 @@
 
 #postback:hover {
     box-shadow: 0px 0px 20px 20px #f9981a;
+}
+
+#editback {
+    width: 155px;
+    height: 55px;
+
+    border-radius: 6px;
+    border-color: transparent;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+
+    margin-bottom: 0;
+
+    background-color:rgb(0, 187, 255);
+    color: white;
+}
+
+#editback:hover {
+    box-shadow: 0px 0px 20px 20px rgb(0, 187, 255);
+}
+
+#submit {
+    width: 155px;
+    height: 55px;
+
+    border-radius: 6px;
+    border-color: transparent;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+
+    margin-bottom: 0;
+
+    background-color:#c0ff02;
+    color: black;
+}
+
+#submit:hover {
+    box-shadow: 0px 0px 20px 20px #c0ff02;
 }
 
 #postcomment {
@@ -394,7 +435,7 @@
 .editprofile {
     float: right;
 
-    margin-top: 355px;
+    margin-top: 300px;
     margin-right: 720px;
 }
 
@@ -408,6 +449,13 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
     font-size: 18px;
+}
+
+#bunnyedit {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: rgb(1, 113, 251);
 }
 
 .chumData {
@@ -447,7 +495,7 @@
     text-decoration: none;
 }
 
-.chumlist h3:hover {
+.chumlist a h3:hover {
     color:rgba(189, 112, 214, 0.927);
 }
 

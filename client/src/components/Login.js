@@ -33,6 +33,19 @@ function Login({ setCurrentUser }) {
     return (
 
         <div className="home">
+
+            <div className="unauthnav">
+
+            <Link className="loginButton" to="/api/login">
+                login
+            </Link>
+
+            <Link id='signupButton' to='/api/signup'>
+                sign up
+            </Link>
+
+            </div>
+
         <div className="static">
 
             <h1 className='logo'>bunease©</h1>
@@ -57,7 +70,7 @@ function Login({ setCurrentUser }) {
 
                     <p>
                         <input
-                            type="text"
+                            type="password"
                             name="password"
                             placeholder='password'
                             value={password}
@@ -71,11 +84,11 @@ function Login({ setCurrentUser }) {
                         </button>
                     </p>
 
-                    <p className='or'>
+                    {/* <p className='or'>
                         <Link className='signupButton' to='/api/signup'>
                         or sign up
                         </Link>
-                    </p>
+                    </p> */}
 
                 </div>
 

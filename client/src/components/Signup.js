@@ -35,6 +35,20 @@ function Signup({ setCurrentUser }) {
 
     return (
         <div className='home'>
+
+
+        <div className="unauthnav">
+
+        <Link className="loginButton" to="/api/login">
+            login
+        </Link>
+
+        <Link id='signupButton' to='/api/signup'>
+            sign up
+        </Link>
+
+        </div>
+
         <div className="static">
 
             <h1 className='logo'>bunease©</h1>
@@ -100,12 +114,12 @@ function Signup({ setCurrentUser }) {
                             sign up
                         </button>
                     </p>
-
+{/* 
                     <p className="or">
                         <Link className="loginButton" to="/api/login">
                         or login
                         </Link>
-                    </p>
+                    </p> */}
 
                 </div>
 

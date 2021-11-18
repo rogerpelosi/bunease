@@ -1,8 +1,12 @@
+import { useHistory } from 'react-router-dom';
+
 // component for editing current user profile info
 
 function EditUserProfile({ handleSubmit, newUserInfo, setNewUserInfo }) {
 
     const {username, name, email, pp, bio} = newUserInfo;
+
+    let history = useHistory();
 
     const handleChange = (e) => {
         setNewUserInfo({...newUserInfo, [e.target.name]: e.target.value})
@@ -10,6 +14,10 @@ function EditUserProfile({ handleSubmit, newUserInfo, setNewUserInfo }) {
 
     return (
         <div className="editprofile">
+
+            <h2>
+               <button id='editback' onClick={() => history.goBack()}>back</button>
+           </h2>
 
             <form id="editprofile" onSubmit={e => handleSubmit(e)}>
 
@@ -53,6 +61,8 @@ function EditUserProfile({ handleSubmit, newUserInfo, setNewUserInfo }) {
                         className="inputField" />
                 </p>
 
+                <p id='bunnyedit'>what color do you like your bunease?</p>
+
                 <p>
                     <input
                         type="color"
@@ -66,7 +76,8 @@ function EditUserProfile({ handleSubmit, newUserInfo, setNewUserInfo }) {
                 <p>
                     <input
                         type='submit'
-                        value='submit' 
+                        value='submit'
+                        id='submit' 
                     />
                 </p>
 
