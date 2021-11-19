@@ -6,6 +6,8 @@ import {ReactComponent as Bunny} from './bunny.svg';
 import {ReactComponent as Squiggle} from './squiggle.svg';
 import {ReactComponent as Arrow} from './arrow.svg';
 
+import {ReactComponent as Sad} from './bunnysad.svg';
+
 // import Navigation from './Navigation';
 
 // this is intended to be a static div that holds a chum list or current user data, will be approx the same size as login and sign up divs as well
@@ -22,12 +24,14 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
         const color = data.pp ? data.pp : 'rgb(0, 187, 255)';
         const bio = data.bio === '' || data.bio === null ? 'say literally anything' : data.bio;
 
+        const name = data.name ? `${data.name}`.toLowerCase() : 'noname';
+
         return (
             <div className="StaticContainer">
             <div className="static">
 
                 {/* <Navigation /> */}
-                <h2 id='greetinguser'>👋 how's it hanging, {`${data.name}`.toLowerCase()}?</h2><br />
+                <h2 id='greetinguser'>👋 how's it hanging, {name}?</h2><br />
 
                 <Squiggle id='squiggle' style={{fill: color}}/>
 
@@ -82,7 +86,8 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
                    (<CloudinaryUpload
                     preset="jz79ayen"
                     buttonText="new post"
-                    handleUpload={handleUpload} />)
+                    handleUpload={handleUpload}
+                    buttonClass='cloudbutton' />)
                 }
 
             </div>
@@ -91,7 +96,12 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
     } else if (dataType === 'chums') {
 
         const color = data.pp ? data.pp : 'rgb(0, 187, 255)';
-
+        if(data.length === 0){return(
+        <div className="static">
+            <h3 id='nochummies'>😔 no chums... yet</h3>
+            <div className='chumcontainer'><Sad id='sad'/></div>
+        </div>)
+        }else{
         return (
             <div className="static">
 
@@ -119,7 +129,7 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
                 </div>
 
             </div>
-        );
+        );}
     } else if(dataType === 'faq') {
         return (
             <div className='static'>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 
-function CloudinaryUpload({ preset, handleUpload, buttonText }) {
+function CloudinaryUpload({ preset, handleUpload, buttonText, buttonClass }) {
 
     let history = useHistory();
 
@@ -56,7 +56,7 @@ function CloudinaryUpload({ preset, handleUpload, buttonText }) {
         //   {buttonText}
         // </a>
 
-        <button className='cloudbutton' id={generateId()}>{buttonText}</button>
+        <button className={buttonClass} id={generateId()}>{buttonText}</button>
       );
     }
 

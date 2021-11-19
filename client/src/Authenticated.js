@@ -159,7 +159,7 @@ function Authenticated({ currentUser, setCurrentUser }) {
 
                 <Route path='/me'>
                     <StaticContainer data={userInfo} dataType='user' handleUpload={handleUpload} />
-                    <UserPosts userPosts={userPosts} />
+                    <UserPosts userPosts={userPosts} handleUpload={handleUpload}/>
                 </Route>
 
                 <Route path='/posts/:id'>
