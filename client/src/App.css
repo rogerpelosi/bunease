@@ -173,6 +173,7 @@
 
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
+    z-index: 100;
 
 }
 
@@ -260,6 +261,9 @@
     padding: 3px;
 
     object-fit: cover;
+
+    border-radius: 35px;
+
 
 }
 
@@ -814,23 +818,41 @@
     object-fit: cover;
     margin-bottom: 0px;
     margin-top: 0px;
+    /* display: block; */
+    border-radius: 35px;
 }
 
 .imgwrap {
-    /* position: relative; */
     width: 415px;
     height: 415px;
     padding-left: 3px;
     padding-right: 3px;
+    position: relative;
 }
 
 .desc {
-    /* position: absolute; */
+    position: absolute;
+    top: -26px;
+    left: 6px;
+    right: 0px;
+    bottom: 0px;
 
-    background: rgba(29, 106, 154, 0.72);
-    color: #fff;
+
+    background: rgba(255, 255, 255, 0.79);
+    color:blueviolet;
     visibility: hidden;
     opacity: 0;
+    width: 415px;
+    height: 415px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 26px;
   
     /* transition effect. not necessary */
     transition: opacity .2s, visibility .2s;

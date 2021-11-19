@@ -19,10 +19,12 @@ function PostCard({ post, postType }) {
                 <div className='imgwrap'>
 
                     <Link to={`/posts/${post.id}`}>
-                        <img src={post.image} alt={post.label} />
+                        <img src={post.image} alt={post.label} title='hover' />
                     </Link>
 
-                    <h3 className='desc'>{post.label}</h3> 
+                    <Link to={`/posts/${post.id}`}>
+                        <h3 className='desc'>{post.label}</h3> 
+                    </Link>
 
                 </div>
 
