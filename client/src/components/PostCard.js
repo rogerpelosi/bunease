@@ -10,15 +10,27 @@ function PostCard({ post, postType }) {
         return (
             <div className="chumspost">
 
+                {/* <Link to={`/users/${post.user.id}`}>
+                    <h2>{post.user.username}</h2>
+                </Link>
+
+                <h3>{post.label}</h3> */}
+
+                <div className='imgwrap'>
+
+                    <Link to={`/posts/${post.id}`}>
+                        <img src={post.image} alt={post.label} />
+                    </Link>
+
+                    <h3 className='desc'>{post.label}</h3> 
+
+                </div>
+
                 <Link to={`/users/${post.user.id}`}>
                     <h2>{post.user.username}</h2>
                 </Link>
 
-                <h3>{post.label}</h3>
-
-                <Link to={`/posts/${post.id}`}>
-                    <img src={post.image} alt={post.label} />
-                </Link>
+                {/* <h3>{post.label}</h3> */}
 
             </div>
         );

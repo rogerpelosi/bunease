@@ -181,7 +181,9 @@
     font-weight: 800;
     font-size: 36px;
     margin-top: 0;
-    text-shadow: 1px 1px 1px rgb(11, 11, 11);
+    text-shadow: 2px 2px 2px #f9981a;
+    margin-bottom: 0;
+    color:#ff007f;
 }
 
 .static h2 {
@@ -398,6 +400,19 @@
 
     /* filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.2)); */
 
+}
+
+#squiggle {
+    width: 400px;
+    height: 40px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.arrow {
+    width: 50px;
+    height: 50px;
 }
 
 .chumbunny {
@@ -782,18 +797,62 @@
     height: 425px;
 
     display: flex;
-    margin-top: 340px;
+    margin-top: 400px;
     margin-right: 500px;
+    align-items: center;
+    margin-bottom: 0px;
     align-items: center;
 }
 
-.chumsposts a img {
+.chumspost a img {
     width: 415px;
     height: 415px;
 
-    padding: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
 
     object-fit: cover;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.imgwrap {
+    /* position: relative; */
+    width: 415px;
+    height: 415px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.desc {
+    /* position: absolute; */
+
+    background: rgba(29, 106, 154, 0.72);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+  
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+}
+
+.imgwrap:hover .desc {
+    visibility: visible;
+    opacity: 1;
+  }
+
+.chumspost a {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color:rgb(0, 187, 255);
+    width: auto;
+    margin-top: 0px;
+}
+
+.chumspost a:hover {
+    color:rgb(1, 113, 251);
 }
 
 .search,

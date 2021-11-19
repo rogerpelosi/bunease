@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useHistory, useParams, Link } from 'react-router-dom';
+import {ReactComponent as Arrow} from './arrow.svg';
 
 // this shows any post's comments, attached user, and gives ability to create new comments
 
@@ -45,7 +46,7 @@ function PostDetails() {
         })
         .then(resp => {
             if(resp.ok){
-                resp.json().then(comment => {setComments([...comments, comment])
+                resp.json().then(comment => {setComments([comment,...comments])
                                              setNewComment('')
                                             setError(null)})
             } else {
@@ -111,6 +112,8 @@ function PostDetails() {
             <div className='allcomments'>
             {postComments}
             </div>
+
+            <Arrow className='arrow' style={{fill: '#c0ff02'}}/>
      
        </div> 
     );

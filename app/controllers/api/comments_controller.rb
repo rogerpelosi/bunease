@@ -15,7 +15,7 @@ class Api::CommentsController < ApplicationController
     end 
 
     def index 
-        render json: Comment.all, each_serializer: CommentSerializer
+        render json: Comment.all
     end 
 
     def show 

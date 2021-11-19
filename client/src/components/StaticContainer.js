@@ -1,6 +1,10 @@
 import { Link, useHistory } from 'react-router-dom';
+
 import CloudinaryUpload from './CloudinaryUpload';
+
 import {ReactComponent as Bunny} from './bunny.svg';
+import {ReactComponent as Squiggle} from './squiggle.svg';
+import {ReactComponent as Arrow} from './arrow.svg';
 
 // import Navigation from './Navigation';
 
@@ -19,7 +23,9 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
             <div className="static">
 
                 {/* <Navigation /> */}
-                <h2 id='greetinguser' style={{color: color}}>👋 how's it hanging, {`${data.name}`.toLowerCase()}?</h2><br />
+                <h2 id='greetinguser'>👋 how's it hanging, {`${data.name}`.toLowerCase()}?</h2><br />
+
+                <Squiggle id='squiggle' style={{fill: color}}/>
 
                 <div className='pp' >
                     {/* style={{backgroundColor: data.pp ?
@@ -84,7 +90,7 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
 
                 <div className="chumData">
 
-                    <h1>your chums</h1><br />
+                    <h1>👯 your chums</h1><br />
                     <div className="chumcontainer">
                         {data.map(chum => 
                         <div className="chumbuttoncont" key={chum.username}>
@@ -100,6 +106,8 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
                         </div>
                         )}
                     </div>
+
+                    <Arrow className='arrow' style={{fill: color}}/>
 
                 </div>
 
