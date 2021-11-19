@@ -14,10 +14,14 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
 
     let history = useHistory();
 
-    const color = data.pp ? data.pp : 'rgb(0, 187, 255)';
-    const bio = data.bio === '' || data.bio === null ? 'say literally anything' : data.bio;
+    // const color = data.pp ? data.pp : 'rgb(0, 187, 255)';
+    // const bio = data.bio === '' || data.bio === null ? 'say literally anything' : data.bio;
 
     if (dataType === 'user' || dataType === 'edituser') {
+
+        const color = data.pp ? data.pp : 'rgb(0, 187, 255)';
+        const bio = data.bio === '' || data.bio === null ? 'say literally anything' : data.bio;
+
         return (
             <div className="StaticContainer">
             <div className="static">
@@ -85,6 +89,9 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
             </div>
         );
     } else if (dataType === 'chums') {
+
+        const color = data.pp ? data.pp : 'rgb(0, 187, 255)';
+
         return (
             <div className="static">
 
@@ -113,6 +120,20 @@ function StaticContainer({ data, dataType, handleUnFollow, handleUpload }) {
 
             </div>
         );
+    } else if(dataType === 'faq') {
+        return (
+            <div className='static'>
+                
+                <h2 className='faq'>🌰 bunease is intended to be an ultra-simplistic platform that allows us to connect. my hope is that bunease can offer a respite to users, without over stimulation/complication/whelmation</h2>
+
+                <h2 className='faq'>🌱 the site offers rather basic features, and can be read as a bootleg, modern day social media, or perhaps an ode to eariler site design & functionality</h2>
+
+                <h2 className='faq'>🪴 what's to come? bunease hopes to keep its simple legacy, with intentions of adding text posts (thanks tumblr), and some 'basic necessities' on the way</h2><br />
+
+                <h2 className='thx'>💗 thank you, bunease (yes you!)</h2>
+
+            </div>
+        )
     }
 
 }

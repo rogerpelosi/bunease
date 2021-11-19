@@ -973,6 +973,20 @@
     font-size: 18px;
 }
 
+.static .faq {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 22px; 
+    color: #41c34e;
+}
+
+.static .thx {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 22px;  
+    color:#ff007f;
+}
+
 .search,
 .chumposts,
 .chumDetails,

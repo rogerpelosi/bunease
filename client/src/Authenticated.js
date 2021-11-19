@@ -15,6 +15,8 @@ import ChumPosts from './components/ChumPosts';
 import ChumDetails from './components/ChumDetails';
 import SearchChums from './components/SearchChums';
 
+import Faq from './components/Faq';
+
 function Authenticated({ currentUser, setCurrentUser }) {
 
     let history = useHistory();
@@ -182,6 +184,11 @@ function Authenticated({ currentUser, setCurrentUser }) {
                     <StaticContainer data={userChums} dataType='chums' 
                     handleUnFollow={handleUnFollow}/>
                     <SearchChums search={search} setSearch={setSearch} chums={filteredChums} />
+                </Route>
+
+                <Route path='/faq'>
+                    <StaticContainer dataType='faq' />
+                    <Faq />
                 </Route>
 
             </Switch>
